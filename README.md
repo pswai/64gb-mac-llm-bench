@@ -93,6 +93,14 @@ those two `sysctl` commands. See METHODOLOGY.
 - `scripts/`: the driver, summariser, first-token probe, the Metal working-set helper, a config
   example and an example quieting hook.
 
+## Credits
+
+Measured on pswai's Mac Studio and maintained by pswai. The benchmark was built with
+**[Claude Code](https://claude.com/claude-code)** (Anthropic): the run plan, the driver and
+probes, the runs themselves, the analysis and this write-up. pswai directed the work, set the
+quiet-machine windows and approved every change to the machine. Every published number was
+re-derived from the raw CSVs by a separate check.
+
 ## License
 
 Code (`scripts/`) is MIT, see [LICENSE](LICENSE). The benchmark data and documentation (`results/`
