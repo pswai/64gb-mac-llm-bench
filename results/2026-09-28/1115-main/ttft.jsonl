@@ -1,0 +1,12 @@
+{"label": "qwen-default-cold-p1", "rc": 0, "exit_s": 23.938, "start_to_first_token_s": 23.682, "prefill_tokens": 2048, "prefill_s": 3.408, "gen_first_ms": 25.845, "load_s_derived": 20.248}
+{"label": "qwen-default-warm-p1", "rc": 0, "exit_s": 3.862, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.297, "gen_first_ms": 25.829, "load_s_derived": 0.344}
+{"label": "qwen-default-cold-p2", "rc": 0, "exit_s": 24.715, "start_to_first_token_s": 24.558, "prefill_tokens": 2048, "prefill_s": 3.317, "gen_first_ms": 25.459, "load_s_derived": 21.216}
+{"label": "qwen-default-warm-p2", "rc": 0, "exit_s": 3.813, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.298, "gen_first_ms": 26.043, "load_s_derived": 0.343}
+{"label": "qwen-default-cold-p3", "rc": 0, "exit_s": 23.862, "start_to_first_token_s": 23.629, "prefill_tokens": 2048, "prefill_s": 3.295, "gen_first_ms": 25.555, "load_s_derived": 20.309}
+{"label": "qwen-default-warm-p3", "rc": 0, "exit_s": 3.981, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.296, "gen_first_ms": 25.532, "load_s_derived": 0.344}
+{"label": "dsf-stream-cold-p1", "rc": 0, "exit_s": 20.362, "start_to_first_token_s": 19.09, "prefill_tokens": 2048, "prefill_s": 13.843, "gen_first_ms": 596.624, "load_s_derived": 4.65}
+{"label": "dsf-stream-warm-p1", "rc": 0, "exit_s": 15.384, "start_to_first_token_s": 14.036, "prefill_tokens": 2048, "prefill_s": 13.099, "gen_first_ms": 629.709, "load_s_derived": 0.308}
+{"label": "dsf-stream-cold-p2", "rc": 0, "exit_s": 19.601, "start_to_first_token_s": 18.153, "prefill_tokens": 2048, "prefill_s": 12.94, "gen_first_ms": 594.035, "load_s_derived": 4.619}
+{"label": "dsf-stream-warm-p2", "rc": 0, "exit_s": 15.282, "start_to_first_token_s": 13.756, "prefill_tokens": 2048, "prefill_s": 12.79, "gen_first_ms": 658.856, "load_s_derived": 0.308}
+{"label": "dsf-stream-cold-p3", "rc": 0, "exit_s": 19.462, "start_to_first_token_s": 18.043, "prefill_tokens": 2048, "prefill_s": 12.943, "gen_first_ms": 608.955, "load_s_derived": 4.491}
+{"label": "dsf-stream-warm-p3", "rc": 0, "exit_s": 14.959, "start_to_first_token_s": 13.614, "prefill_tokens": 2048, "prefill_s": 12.718, "gen_first_ms": 611.451, "load_s_derived": 0.284}

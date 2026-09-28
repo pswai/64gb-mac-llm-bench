@@ -1,0 +1,37 @@
+2026-09-28 20:08:45 free disk 245 GiB
+2026-09-28 20:08:45 purge available: 1
+2026-09-28 20:08:46 hard stop at 2026-09-28 23:59:46 (watchdog)
+2026-09-28 20:08:46 cron paused <cron-id>
+2026-09-28 20:08:46 cron paused <cron-id>
+2026-09-28 20:08:47 cron paused <cron-id>
+2026-09-28 20:08:47 cron paused <cron-id>
+2026-09-28 20:08:47 cron paused <cron-id>
+2026-09-28 20:08:47 cron paused <cron-id>
+2026-09-28 20:08:47 daily ds4-server booted out
+2026-09-28 20:08:47 wired limit before: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-28 20:08:47 wired limit after: 0 MiB; recommendedMaxWorkingSetSize=55662788608 bytes (51.84 GiB, 53084 MiB)
+2026-09-28 20:09:07 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 166946,536850,3260136,152748,23512,11204566,18135706,731056
+2026-09-28 20:09:08 sha256 check skipped
+2026-09-28 20:09:08 start qwen-chunk2048-r1: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 20:35:23 end qwen-chunk2048-r1: rc=0 wall=1575s rows=32 swapin_pages=1970
+2026-09-28 20:35:23 cooldown 120s
+2026-09-28 20:37:23 start qwen-chunk2048-r2: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 21:03:37 end qwen-chunk2048-r2: rc=0 wall=1574s rows=32 swapin_pages=1197
+2026-09-28 21:03:37 cooldown 120s
+2026-09-28 21:05:37 start qwen-chunk2048-r3: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 21:31:52 end qwen-chunk2048-r3: rc=0 wall=1575s rows=32 swapin_pages=659
+2026-09-28 21:31:52 cooldown 120s
+2026-09-28 21:33:52 probe: qwen-default x1, abort past 1024 MiB swap-ins
+2026-09-28 21:33:52 start qwen-default-r1: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf 
+2026-09-28 21:59:01 end qwen-default-r1: rc=0 wall=1509s rows=32 swapin_pages=648
+2026-09-28 21:59:01 all runs done
+2026-09-28 21:59:01 LIMIT RESTORED: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-28 21:59:03 RESTORE OK: launchd pid 21515 listening on :8001
+2026-09-28 21:59:03 cron resumed <cron-id>
+2026-09-28 21:59:03 cron resumed <cron-id>
+2026-09-28 21:59:03 cron resumed <cron-id>
+2026-09-28 21:59:03 cron resumed <cron-id>
+2026-09-28 21:59:03 cron resumed <cron-id>
+2026-09-28 21:59:04 cron resumed <cron-id>
+2026-09-28 21:59:04 active crons now: 6
+2026-09-28 21:59:04 disk after: 246Gi free

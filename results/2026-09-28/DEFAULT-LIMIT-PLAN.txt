@@ -1,0 +1,9 @@
+2026-09-28 20:02  Default GPU wired-limit sweep, rules fixed BEFORE any run.
+Purpose: measure (not infer) Qwen3.8 Q2 at the macOS default iogpu wired limit.
+Build/binary/model: same as the 1115 batch (worktree 0aaea5a detached, ds4-bench sha256 6ef71fda..., Qwen GGUF sha256 b1b93fa6... verified 11:22, read-only since; SHA re-check skipped).
+Limit: iogpu.wired_limit_mb 57344 -> 0 (default) for the window; restored to 57344 before the daily server restarts. Record sysctl + Metal recommendedMaxWorkingSetSize before/after.
+Main: qwen-chunk2048 x3 (official command + --prefill-chunk 2048), 120 s cooldowns.
+Validity: rc=0, 32 rows, system-wide swap-ins <= 100 MiB (unchanged).
+Replacement: while valid < 3, extra reps, at most 2 extra. All attempts reported.
+Probe: qwen-default (unmodified official command) x1, run LAST, killed when system-wide swap-ins pass 1024 MiB. Reported as a probe whatever the outcome.
+Crons: abort unless paused count == active count and 0 remain active.

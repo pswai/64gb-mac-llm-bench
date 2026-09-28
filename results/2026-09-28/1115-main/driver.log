@@ -1,0 +1,65 @@
+2026-09-28 11:15:25 free disk 124 GiB
+2026-09-28 11:15:25 purge available: 1
+2026-09-28 11:15:26 hard stop at 2026-09-28 20:00:26 (watchdog)
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:26 cron paused <cron-id>
+2026-09-28 11:15:27 daily ds4-server booted out
+2026-09-28 11:15:48 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 411769,394058,2807492,140240,64251,11133676,18004682,712821
+2026-09-28 11:18:24 sha256 ok DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf
+2026-09-28 11:22:49 sha256 ok Qwen3.8-Flash-Next-Q2.gguf
+2026-09-28 11:22:49 start qwen-default-r1: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf 
+2026-09-28 11:48:26 end qwen-default-r1: rc=0 wall=1537s rows=32 swapin_pages=187
+2026-09-28 11:48:26 cooldown 120s
+2026-09-28 11:50:26 start qwen-chunk2048-r1: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 12:16:39 end qwen-chunk2048-r1: rc=0 wall=1573s rows=32 swapin_pages=4
+2026-09-28 12:16:39 cooldown 120s
+2026-09-28 12:18:40 start dsf-stream-r1: ds4-bench -m DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf --ssd-streaming
+2026-09-28 12:33:52 end dsf-stream-r1: rc=0 wall=912s rows=32 swapin_pages=84
+2026-09-28 12:33:52 cooldown 120s
+2026-09-28 12:35:52 start dsf-stream-r2: ds4-bench -m DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf --ssd-streaming
+2026-09-28 12:49:11 end dsf-stream-r2: rc=0 wall=799s rows=32 swapin_pages=2607
+2026-09-28 12:49:11 cooldown 120s
+2026-09-28 12:51:11 start qwen-chunk2048-r2: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 13:17:46 end qwen-chunk2048-r2: rc=0 wall=1595s rows=32 swapin_pages=1232
+2026-09-28 13:17:46 cooldown 120s
+2026-09-28 13:19:46 start qwen-default-r2: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf 
+2026-09-28 13:44:51 end qwen-default-r2: rc=0 wall=1505s rows=32 swapin_pages=841
+2026-09-28 13:44:51 cooldown 120s
+2026-09-28 13:46:51 start qwen-default-r3: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf 
+2026-09-28 14:11:57 end qwen-default-r3: rc=0 wall=1506s rows=32 swapin_pages=1211
+2026-09-28 14:11:57 cooldown 120s
+2026-09-28 14:13:57 start qwen-chunk2048-r3: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 14:40:12 end qwen-chunk2048-r3: rc=0 wall=1574s rows=32 swapin_pages=8775
+2026-09-28 14:40:12 INVALID qwen-chunk2048-r3: swap-ins 8775 pages; skipping remaining reps of qwen-chunk2048
+2026-09-28 14:40:12 cooldown 120s
+2026-09-28 14:42:12 start dsf-stream-r3: ds4-bench -m DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf --ssd-streaming
+2026-09-28 14:55:22 end dsf-stream-r3: rc=0 wall=789s rows=32 swapin_pages=25771
+2026-09-28 14:55:22 INVALID dsf-stream-r3: swap-ins 25771 pages; skipping remaining reps of dsf-stream
+2026-09-28 14:55:22 cooldown 120s
+2026-09-28 14:57:22 ttft: purge available: 1 (cold runs skipped if 0)
+2026-09-28 14:57:51 ttft qwen-default cold p1: {"label": "qwen-default-cold-p1", "rc": 0, "exit_s": 23.938, "start_to_first_token_s": 23.682, "prefill_tokens": 2048, "prefill_s": 3.408, "gen_first_ms": 25.845, "load_s_derived": 20.248}
+2026-09-28 14:58:15 ttft qwen-default warm p1: {"label": "qwen-default-warm-p1", "rc": 0, "exit_s": 3.862, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.297, "gen_first_ms": 25.829, "load_s_derived": 0.344}
+2026-09-28 14:59:06 ttft qwen-default cold p2: {"label": "qwen-default-cold-p2", "rc": 0, "exit_s": 24.715, "start_to_first_token_s": 24.558, "prefill_tokens": 2048, "prefill_s": 3.317, "gen_first_ms": 25.459, "load_s_derived": 21.216}
+2026-09-28 14:59:30 ttft qwen-default warm p2: {"label": "qwen-default-warm-p2", "rc": 0, "exit_s": 3.813, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.298, "gen_first_ms": 26.043, "load_s_derived": 0.343}
+2026-09-28 15:00:20 ttft qwen-default cold p3: {"label": "qwen-default-cold-p3", "rc": 0, "exit_s": 23.862, "start_to_first_token_s": 23.629, "prefill_tokens": 2048, "prefill_s": 3.295, "gen_first_ms": 25.555, "load_s_derived": 20.309}
+2026-09-28 15:00:44 ttft qwen-default warm p3: {"label": "qwen-default-warm-p3", "rc": 0, "exit_s": 3.981, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.296, "gen_first_ms": 25.532, "load_s_derived": 0.344}
+2026-09-28 15:01:31 ttft dsf-stream cold p1: {"label": "dsf-stream-cold-p1", "rc": 0, "exit_s": 20.362, "start_to_first_token_s": 19.09, "prefill_tokens": 2048, "prefill_s": 13.843, "gen_first_ms": 596.624, "load_s_derived": 4.65}
+2026-09-28 15:02:06 ttft dsf-stream warm p1: {"label": "dsf-stream-warm-p1", "rc": 0, "exit_s": 15.384, "start_to_first_token_s": 14.036, "prefill_tokens": 2048, "prefill_s": 13.099, "gen_first_ms": 629.709, "load_s_derived": 0.308}
+2026-09-28 15:02:52 ttft dsf-stream cold p2: {"label": "dsf-stream-cold-p2", "rc": 0, "exit_s": 19.601, "start_to_first_token_s": 18.153, "prefill_tokens": 2048, "prefill_s": 12.94, "gen_first_ms": 594.035, "load_s_derived": 4.619}
+2026-09-28 15:03:28 ttft dsf-stream warm p2: {"label": "dsf-stream-warm-p2", "rc": 0, "exit_s": 15.282, "start_to_first_token_s": 13.756, "prefill_tokens": 2048, "prefill_s": 12.79, "gen_first_ms": 658.856, "load_s_derived": 0.308}
+2026-09-28 15:04:13 ttft dsf-stream cold p3: {"label": "dsf-stream-cold-p3", "rc": 0, "exit_s": 19.462, "start_to_first_token_s": 18.043, "prefill_tokens": 2048, "prefill_s": 12.943, "gen_first_ms": 608.955, "load_s_derived": 4.491}
+2026-09-28 15:04:48 ttft dsf-stream warm p3: {"label": "dsf-stream-warm-p3", "rc": 0, "exit_s": 14.959, "start_to_first_token_s": 13.614, "prefill_tokens": 2048, "prefill_s": 12.718, "gen_first_ms": 611.451, "load_s_derived": 0.284}
+2026-09-28 15:05:09 all runs done
+2026-09-28 15:05:31 RESTORE OK: launchd pid 89131 listening on :8001
+2026-09-28 15:05:31 cron resumed <cron-id>
+2026-09-28 15:05:31 cron resumed <cron-id>
+2026-09-28 15:05:31 cron resumed <cron-id>
+2026-09-28 15:05:31 cron resumed <cron-id>
+2026-09-28 15:05:32 cron resumed <cron-id>
+2026-09-28 15:05:32 cron resumed <cron-id>
+2026-09-28 15:05:32 active crons now: 6
+2026-09-28 15:05:32 disk after: 124Gi free

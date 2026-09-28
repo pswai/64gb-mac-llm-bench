@@ -1,0 +1,174 @@
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 1.306 ms, residency requested in 19914.512 ms, warmup 4.872 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-cold-p1", "rc": 0, "exit_s": 23.938, "start_to_first_token_s": 23.682, "prefill_tokens": 2048, "prefill_s": 3.408, "gen_first_ms": 25.845, "load_s_derived": 20.248}
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.886 ms, residency requested in 233.955 ms, warmup 3.775 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-warm-p1", "rc": 0, "exit_s": 3.862, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.297, "gen_first_ms": 25.829, "load_s_derived": 0.344}
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 1.276 ms, residency requested in 20870.369 ms, warmup 5.671 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-cold-p2", "rc": 0, "exit_s": 24.715, "start_to_first_token_s": 24.558, "prefill_tokens": 2048, "prefill_s": 3.317, "gen_first_ms": 25.459, "load_s_derived": 21.216}
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.604 ms, residency requested in 235.641 ms, warmup 2.930 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-warm-p2", "rc": 0, "exit_s": 3.813, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.298, "gen_first_ms": 26.043, "load_s_derived": 0.343}
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 1.064 ms, residency requested in 19998.272 ms, warmup 5.809 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-cold-p3", "rc": 0, "exit_s": 23.862, "start_to_first_token_s": 23.629, "prefill_tokens": 2048, "prefill_s": 3.295, "gen_first_ms": 25.555, "load_s_derived": 20.309}
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.564 ms, residency requested in 235.938 ms, warmup 3.773 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.05 + compressed 0.01) + buffers 2.07 GiB + resident model 41.72 GiB = 43.85 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2050 compressed_kv_rows=513 backend=metal
+ds4-bench: context buffers 2183.13 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2050, compressed_kv_rows=513)
+{"label": "qwen-default-warm-p3", "rc": 0, "exit_s": 3.981, "start_to_first_token_s": 3.666, "prefill_tokens": 2048, "prefill_s": 3.296, "gen_first_ms": 25.532, "load_s_derived": 0.344}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-cold-p1", "rc": 0, "exit_s": 20.362, "start_to_first_token_s": 19.09, "prefill_tokens": 2048, "prefill_s": 13.843, "gen_first_ms": 596.624, "load_s_derived": 4.65}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-warm-p1", "rc": 0, "exit_s": 15.384, "start_to_first_token_s": 14.036, "prefill_tokens": 2048, "prefill_s": 13.099, "gen_first_ms": 629.709, "load_s_derived": 0.308}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-cold-p2", "rc": 0, "exit_s": 19.601, "start_to_first_token_s": 18.153, "prefill_tokens": 2048, "prefill_s": 12.94, "gen_first_ms": 594.035, "load_s_derived": 4.619}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-warm-p2", "rc": 0, "exit_s": 15.282, "start_to_first_token_s": 13.756, "prefill_tokens": 2048, "prefill_s": 12.79, "gen_first_ms": 658.856, "load_s_derived": 0.308}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-cold-p3", "rc": 0, "exit_s": 19.462, "start_to_first_token_s": 18.043, "prefill_tokens": 2048, "prefill_s": 12.943, "gen_first_ms": 608.955, "load_s_derived": 4.491}
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 86% total for model + cached experts: 48.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 6038 (39.80 GiB)
+ds4: metal SSD streaming cache target 39.80 GiB; effective 39.80 GiB = 3.38 GiB prefill headroom + 36.43 GiB dynamic cache (5526 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.20 GiB (raw 0.19 + compressed 0.02) + buffers 0.01 GiB + resident model 8.20 GiB + expert cache 36.43 GiB + prefill expert reserve 3.38 GiB = 48.21 GiB planned
+ds4: memory detail: ctx=2050 prefill_cap=2050 raw_kv_rows=2304 compressed_kv_rows=514 backend=metal
+ds4-bench: context buffers 218.71 MiB (ctx=2050, backend=metal, prefill_chunk=2050, raw_kv_rows=2304, compressed_kv_rows=514)
+{"label": "dsf-stream-warm-p3", "rc": 0, "exit_s": 14.959, "start_to_first_token_s": 13.614, "prefill_tokens": 2048, "prefill_s": 12.718, "gen_first_ms": 611.451, "load_s_derived": 0.284}

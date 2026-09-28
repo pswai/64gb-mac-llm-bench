@@ -1,0 +1,33 @@
+# Copy to bench.conf (git-ignored) and edit. Sourced by scripts/run-bench.sh.
+# Values set in the environment win over the defaults below.
+# These are the configurations measured on 2026-09-28.
+
+DS4_DIR=${DS4_DIR:-$HOME/src/ds4}                       # clean antirez/ds4 checkout with ds4-bench built
+EXPECT_COMMIT=${EXPECT_COMMIT-0aaea5a238fb41a35106a551e73c8409dfb751ac}  # empty = don't enforce, just record
+MODEL_DIR=${MODEL_DIR:-$DS4_DIR/gguf}                     # where ./download_model.sh put the GGUFs
+CONFIGS=${CONFIGS:-"qwen-default qwen-chunk2048 dsf-stream"}   # env overrides
+
+# Optional quieting hook: "<hook> quiet|restore|check <run-dir>".
+# See scripts/examples/quiet-launchd-server-and-crons.sh.
+# QUIET_HOOK=$HOME/bin/my-quiet-hook.sh
+
+QWEN=$MODEL_DIR/Qwen3.8-Flash-Next-Q2.gguf                   # ./download_model.sh qwen38-q2
+DSF=$MODEL_DIR/DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf   # ds4f-q2
+
+config_model() { case $1 in qwen-*) echo "$QWEN" ;; dsf-*) echo "$DSF" ;; esac; }
+config_flags() {
+    case $1 in
+        qwen-default) echo "" ;;                        # the official command, unchanged
+        qwen-chunk2048) echo "--prefill-chunk 2048" ;;
+        dsf-stream) echo "--ssd-streaming" ;;           # automatic expert-cache budget
+        *) echo "UNKNOWN" ;;
+    esac
+}
+# "<bytes> <sha256>" of the Hugging Face LFS object; empty = don't check.
+model_expect() {
+    case $(basename "$1") in
+        Qwen3.8-Flash-Next-Q2.gguf) echo "147207127040 b1b93fa69aca5f187b0fb813aca8f3ec1beb5cf8cf0bd38cf041b93e0b6ccac9" ;;
+        DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf)
+            echo "86720111488 ca22ae2f838e14077c22bc1c1417b71b45b5e5a3687bd96c2ac6e17fdb6261c0" ;;
+    esac
+}

@@ -1,0 +1,29 @@
+2026-09-28 15:07:09 free disk 124 GiB
+2026-09-28 15:07:09 purge available: 1
+2026-09-28 15:07:10 hard stop at 2026-09-28 17:30:10 (watchdog)
+2026-09-28 15:07:10 cron paused <cron-id>
+2026-09-28 15:07:10 cron paused <cron-id>
+2026-09-28 15:07:10 cron paused <cron-id>
+2026-09-28 15:07:10 cron paused <cron-id>
+2026-09-28 15:07:10 cron paused <cron-id>
+2026-09-28 15:07:11 cron paused <cron-id>
+2026-09-28 15:07:11 daily ds4-server booted out
+2026-09-28 15:07:32 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 138635,923789,2870795,139696,20390,11178567,18135666,726085
+2026-09-28 15:07:33 sha256 check skipped
+2026-09-28 15:07:33 start qwen-chunk2048-r1: ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-28 15:33:48 end qwen-chunk2048-r1: rc=0 wall=1574s rows=32 swapin_pages=10761
+2026-09-28 15:33:48 INVALID qwen-chunk2048-r1: swap-ins 10761 pages; skipping remaining reps of qwen-chunk2048
+2026-09-28 15:33:48 cooldown 120s
+2026-09-28 15:35:48 start dsf-stream-r1: ds4-bench -m DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf --ssd-streaming
+2026-09-28 15:48:50 end dsf-stream-r1: rc=0 wall=782s rows=32 swapin_pages=1001
+2026-09-28 15:48:50 cooldown 120s
+2026-09-28 15:50:50 all runs done
+2026-09-28 15:51:12 RESTORE OK: launchd pid 96587 listening on :8001
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:13 cron resumed <cron-id>
+2026-09-28 15:51:14 active crons now: 6
+2026-09-28 15:51:14 disk after: 124Gi free

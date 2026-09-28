@@ -1,0 +1,35 @@
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: SSD streaming auto cache budget
+ds4:   metal recommends 56.00 GiB working set
+ds4:   using 84% total for model + cached experts: 47.00 GiB
+ds4:   non-routed weights: 8.20 GiB
+ds4:   routed expert size: 6.75 MiB
+ds4:   expert budget before prefill reserve: 5886 (38.80 GiB)
+ds4: metal SSD streaming cache target 38.80 GiB; effective 38.80 GiB = 3.38 GiB prefill headroom + 35.42 GiB dynamic cache (5374 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.86 GiB (raw 0.36 + compressed 0.50) + buffers 0.50 GiB + resident model 8.20 GiB + expert cache 35.42 GiB + prefill expert reserve 3.38 GiB = 48.36 GiB planned
+ds4: memory detail: ctx=65665 prefill_cap=4096 raw_kv_rows=4352 compressed_kv_rows=16418 backend=metal
+ds4-bench: context buffers 1395.67 MiB (ctx=65665, backend=metal, prefill_chunk=4096, raw_kv_rows=4352, compressed_kv_rows=16418)
+      798.84 real        21.64 user       485.41 sys
+         48340992000  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5799998  page reclaims
+                5829  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              853745  voluntary context switches
+             5988535  involuntary context switches
+       3007393344192  instructions retired
+       2012612794709  cycles elapsed
+         44378573768  peak memory footprint
