@@ -1,0 +1,15 @@
+2026-09-30 12:13:40 window start; hard stop 2026-09-30 17:30:40
+2026-09-30 12:13:40 free disk 197 GiB
+2026-09-30 12:13:40 PR head still b96a12b
+2026-09-30 12:13:53 built ds4-bench-0aaea5a @ 0aaea5a: ds4-bench 6ef71fda2de2 ds4-server <cron-id>
+2026-09-30 12:13:54 built ds4-pr1056-b96a12b @ b96a12b: ds4-bench 2358ab998207 ds4-server <cron-id>
+2026-09-30 12:13:54 build warnings: base 0, pr 0
+2026-09-30 12:14:19 ChatGPT/Codex quit
+2026-09-30 12:14:21 hook: paused 6 of 6 jobs, 0 still active
+2026-09-30 12:14:21 hook: server stopped
+2026-09-30 12:14:21 ABORT: a ds4-server is still running
+2026-09-30 12:14:26 limit: 57344 MiB; 
+2026-09-30 12:14:27 hook: server restored: pid 85956 on :8001
+2026-09-30 12:14:28 hook: jobs active now: 6
+2026-09-30 12:14:29 ChatGPT/Codex reopened
+2026-09-30 12:14:29 FINAL: limit 57344; daily launchd pid '85956' listener '85956'; active crons 6; 199Gi free

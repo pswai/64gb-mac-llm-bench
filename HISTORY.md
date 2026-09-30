@@ -1,5 +1,17 @@
 # History
 
+## 2026-09-30: antirez/ds4#1056 measured before merge (`b96a12b` vs `0aaea5a`)
+
+- **Official sweep** at the macOS default limit, 3 + 3 runs, all valid: the PR is +1.1–1.75% prefill
+  and +0.2–0.8% gen at every frontier. The base arm reproduced the 09-28 lead row within 0.24% / 0.44%.
+- **Daily-server A/B:** a small gain with MTP off; with MTP on, the PR's default predictor
+  preparation costs ~9% prefill, and requests are 3.5–8.8% slower. `DS4_QWEN4_MTP_PREFILL=off` is
+  roughly neutral.
+- **First measured batch with the generalized driver.** New optional per-config hooks
+  (`config_ds4_dir`, `config_expect_commit`, `config_env`) allow A/B between two checkouts. The
+  example quiet hook now waits for the server process to exit, not just its port; that race aborted
+  the first attempt.
+
 ## 2026-09-28: first measurements (ds4 `0aaea5a`, Mac Studio M4 Max 64 GB)
 
 - **11:15–15:05, main batch** at a raised GPU limit (56.00 GiB): Qwen3.8 Flash Next Q2 with the

@@ -1,0 +1,29 @@
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.766 ms, residency requested in 289.264 ms, warmup 4.031 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 2.09 GiB (raw 1.63 + compressed 0.46) + buffers 2.31 GiB + resident model 41.72 GiB = 46.11 GiB planned
+ds4: memory detail: ctx=65665 prefill_cap=2048 raw_kv_rows=65665 compressed_kv_rows=16417 backend=metal
+ds4-bench: context buffers 4500.37 MiB (ctx=65665, backend=metal, prefill_chunk=2048, raw_kv_rows=65665, compressed_kv_rows=16417)
+ds4-bench: session payload snapshot is 1.01 GiB, above the 1.00 GiB benchmark limit; replaying prefixes instead (set DS4_BENCH_FORCE_SNAPSHOT=1 to force snapshots)
+     1574.17 real        11.11 user       220.47 sys
+          4347346944  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              316926  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+            13446609  voluntary context switches
+             3341053  involuntary context switches
+       1055912719902  instructions retired
+        767655523985  cycles elapsed
+          5386474200  peak memory footprint

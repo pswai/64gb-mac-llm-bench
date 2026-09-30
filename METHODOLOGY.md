@@ -148,5 +148,26 @@ Unchanged: the sweep, sampler, validity rule, order, cooldowns and swap-guarded 
 The main and replacement batches (11:15, 15:07) ran an earlier revision that had no built-in
 replacement loop, probe option, GPU-limit option or job-count check. The replacement batch was
 started by hand under the rule written above. The default-limit batch (20:08) ran the revision
-this script generalizes. **The generalized script has been dry-run tested, not yet used for a
-full measured batch.** The next dated entry in HISTORY.md will say when it is.
+this script generalizes. **The generalized script was first used for a full measured batch on 2026-09-30** (the #1056
+sweep); the 2026-09-28 data predates it.
+
+## A/B between two engine builds (from 2026-09-30)
+
+- Both arms run in one session, each from its own clean worktree, in alternating order (A B B A A B
+  for sweeps; A B B A or A B C C B A for server startups). Every run is labelled with its commit
+  and binary sha256.
+- The driver's per-config hooks (`config_ds4_dir`, `config_expect_commit`, `config_env`) select the
+  checkout, enforce its commit and pin variables such as `DS4_QWEN4_PREFILL_CHUNK`. See
+  `scripts/examples/bench-pr-ab.conf.example`.
+- **Server A/Bs** use `scripts/server_ab.py`:
+  - a separate port and a fresh temporary KV directory per startup. Never the daily cache: newer
+    builds may rewrite incompatible checkpoint files.
+  - identical prompt slices for every arm, with a numeric prefix to defeat prefix caching;
+  - metrics from the server's own log lines.
+  - **Known gap:** the prefix differs per request, so outputs are not comparable across arms.
+    Future runs should reuse the same prefix per slot across arms, and rely on restarting the
+    server to clear its cache instead.
+- **Chunk size in the official sweep:** the session path honours `--prefill-chunk`, but the sweep
+  adds exactly 2,048 tokens per frontier. Any chunk ≥ 2048 therefore does the same prefill work, and
+  changes only buffer sizes.
+

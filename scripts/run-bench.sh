@@ -66,18 +66,26 @@ vm_fields() {
         END{printf "%s,%s,%s,%s,%s,%s,%s,%s", f,a,i,w,c,si,so,po}'
 }
 
+# Optional per-config overrides (for A/B between two ds4 checkouts), defined in the config:
+#   config_ds4_dir <cfg>        checkout to run from        (default: DS4_DIR)
+#   config_expect_commit <cfg>  commit that checkout must be at (default: EXPECT_COMMIT)
+#   config_env <cfg>            extra VAR=value words passed via env(1)
+cfg_dir()    { if declare -F config_ds4_dir >/dev/null; then config_ds4_dir "$1"; else echo "$DS4_DIR"; fi; }
+cfg_commit() { if declare -F config_expect_commit >/dev/null; then config_expect_commit "$1"; else echo "$EXPECT_COMMIT"; fi; }
+cfg_env()    { if declare -F config_env >/dev/null; then config_env "$1"; fi; }
+
 # ---------------------------------------------------------------- preflight
 preflight() {
     local free; free=$(df -g "$OUT_DIR" | awk 'NR==2{print $4}')
     log "free disk ${free} GiB"
     [ "$free" -ge "$MIN_FREE_GIB" ] || { log "ABORT: under $MIN_FREE_GIB GiB free"; return 1; }
-    local head; head=$(git -C "$DS4_DIR" rev-parse HEAD 2>/dev/null)
-    [ -n "$head" ] || { log "ABORT: $DS4_DIR is not a ds4 git checkout"; return 1; }
-    if [ -n "$EXPECT_COMMIT" ] && [ "$head" != "$EXPECT_COMMIT" ]; then log "ABORT: ds4 at $head, expected $EXPECT_COMMIT"; return 1; fi
-    [ -z "$(git -C "$DS4_DIR" status --porcelain)" ] || { log "ABORT: ds4 checkout has local changes"; return 1; }
-    [ -x "$DS4_DIR/ds4-bench" ] || { log "ABORT: ds4-bench not built (make ds4-bench)"; return 1; }
-    local c m want
+    local c m want d head exp
     for c in $CONFIGS $PROBE_CONFIG; do
+        d=$(cfg_dir "$c"); exp=$(cfg_commit "$c"); head=$(git -C "$d" rev-parse HEAD 2>/dev/null)
+        [ -n "$head" ] || { log "ABORT: $d is not a ds4 git checkout"; return 1; }
+        if [ -n "$exp" ] && [ "$head" != "$exp" ]; then log "ABORT: $c: ds4 at $head, expected $exp"; return 1; fi
+        [ -z "$(git -C "$d" status --porcelain)" ] || { log "ABORT: $d has local changes"; return 1; }
+        [ -x "$d/ds4-bench" ] || { log "ABORT: ds4-bench not built in $d"; return 1; }
         [ "$(config_flags "$c")" != UNKNOWN ] || { log "ABORT: unknown config $c"; return 1; }
         m=$(config_model "$c"); want=$(model_expect "$m" | awk '{print $1}')
         [ -f "$m" ] || { log "ABORT: model missing: $m"; return 1; }
@@ -101,8 +109,11 @@ capture_env() {   # stays local; review before publishing (it lists running proc
         sw_vers; uname -srm
         sysctl hw.model machdep.cpu.brand_string hw.memsize hw.pagesize iogpu.wired_limit_mb iogpu.wired_lwm_mb vm.swapusage
         [ -x "$WSZ" ] && "$WSZ"
-        echo "## ds4"; git -C "$DS4_DIR" log -1 --format='%H %cd %s'; git -C "$DS4_DIR" status --porcelain | wc -l
-        shasum -a 256 "$DS4_DIR/ds4-bench" | awk '{print $1"  ds4-bench"}'
+        echo "## ds4"; for d in $(for c in $CONFIGS $PROBE_CONFIG; do cfg_dir "$c"; done | sort -u); do
+            echo "$(basename "$d"): $(git -C "$d" log -1 --format='%H %cd %s'); dirty files: $(git -C "$d" status --porcelain | wc -l | tr -d ' ')"
+            shasum -a 256 "$d/ds4-bench" | awk -v n="$(basename "$d")" '{print $1"  "n"/ds4-bench"}'
+        done
+        for c in $CONFIGS $PROBE_CONFIG; do echo "config $c: dir $(basename "$(cfg_dir "$c")") env [$(cfg_env "$c")] flags [$(config_flags "$c")]"; done
         echo "## models"; for c in $CONFIGS $PROBE_CONFIG; do m=$(config_model "$c"); echo "$(stat -f %z "$m") $(basename "$m")"; done | sort -u
         echo "## disk"; df -h "$OUT_DIR" | tail -1 | awk '{print "free", $4}'; diskutil info / | grep -E "Media Name|Solid State|Protocol"
         echo "## power/thermal"; pmset -g | grep -E "lowpowermode|powermode"; pmset -g therm
@@ -187,12 +198,13 @@ run_one() {
     case " $SKIP_CONFIGS " in *" $cfg "*) log "skip $id (earlier rep swapped)"; return ;; esac
     model=$(config_model "$cfg"); flags=$(config_flags "$cfg")
     ps -Ao pid,pcpu,rss,comm -r | head -10 > "$RUN/$id.ps"   # local only; do not publish raw
-    echo "./ds4-bench -m $(basename "$model") $flags $OFFICIAL" > "$RUN/$id.cmd"
+    local dir envw; dir=$(cfg_dir "$cfg"); envw=$(cfg_env "$cfg")
+    echo "(cd $(basename "$dir")) ${envw:+env $envw }./ds4-bench -m $(basename "$model") $flags $OFFICIAL" > "$RUN/$id.cmd"
     si0=$(vm_counter Swapins)
     start_sampler "$RUN/$id.samples.csv"
-    log "start $id: ds4-bench -m $(basename "$model") $flags"
+    log "start $id: [$(basename "$dir")] ${envw:+$envw }ds4-bench -m $(basename "$model") $flags"
     t0=$(date +%s)
-    ( cd "$DS4_DIR" && exec /usr/bin/time -l ./ds4-bench -m "$model" $flags $OFFICIAL --csv "$RUN/$id.csv" ) 2> "$RUN/$id.stderr" &
+    ( cd "$dir" && exec env $envw /usr/bin/time -l ./ds4-bench -m "$model" $flags $OFFICIAL --csv "$RUN/$id.csv" ) 2> "$RUN/$id.stderr" &
     CHILD=$!
     if [ -n "${ABORT_PAGES:-}" ]; then
         while kill -0 "$CHILD" 2>/dev/null; do
@@ -231,7 +243,7 @@ run_ttft() {
                     [ "$purge_ok" = 1 ] || continue
                     sudo -n /usr/sbin/purge; sleep 5
                 fi
-                ( cd "$DS4_DIR" && exec python3 "$S/ttft_probe.py" --label "$cfg-$kind-p$p" \
+                ( cd "$(cfg_dir "$cfg")" && exec env $(cfg_env "$cfg") python3 "$S/ttft_probe.py" --label "$cfg-$kind-p$p" \
                     --out "$RUN/ttft.jsonl" -- ./ds4-bench -m "$model" $flags \
                     --prompt-file "$RUN/ttft-prompt.txt" --ctx-start 2048 --ctx-max 2048 --gen-tokens 1 \
                     --csv /dev/stdout ) 2>> "$RUN/ttft.stderr" &
@@ -248,7 +260,7 @@ preflight || exit 1
 capture_env
 if [ "$DRY_RUN" = 1 ]; then
     [ -n "$QUIET_HOOK" ] && "$QUIET_HOOK" check "$RUN" 2>&1 | while IFS= read -r l; do log "hook check: $l"; done
-    log "DRY RUN: preflight ok; ds4 $(git -C "$DS4_DIR" rev-parse --short HEAD); configs: $CONFIGS${PROBE_CONFIG:+ + probe $PROBE_CONFIG}; reps $REPS; stop at $STOP_AT"
+    log "DRY RUN: preflight ok; ds4 $(for c in $CONFIGS; do printf '%s=%s ' "$c" "$(git -C "$(cfg_dir "$c")" rev-parse --short HEAD)"; done); configs: $CONFIGS${PROBE_CONFIG:+ + probe $PROBE_CONFIG}; reps $REPS; stop at $STOP_AT"
     exit 0
 fi
 

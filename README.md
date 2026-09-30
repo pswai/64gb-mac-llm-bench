@@ -46,6 +46,19 @@ A 2,048-token prompt at the raised limit; "cold" means after `sudo purge`. Media
 | 2026-09-28 | Qwen3.8 Flash Next Q2 (official command) | 23.7 s | 3.7 s |
 | 2026-09-28 | DeepSeek V4 Flash Q2, `--ssd-streaming` | 18.2 s | 13.8 s |
 
+## Upstream pull requests, measured before merge
+
+A PR row compares the PR head against its base on this machine, in the same session. It is not a
+release result.
+
+| Date | PR | Base → head | Test | Result |
+|---|---|---|---|---|
+| 2026-09-30 | [antirez/ds4#1056](https://github.com/antirez/ds4/pull/1056): Qwen kernels, MTP state, SSD scheduling | `0aaea5a` → `b96a12b` | official sweep, default limit, chunk 2048, 3 + 3 runs | prefill **+1.1 to +1.75%**, gen **+0.2 to +0.8%** across 32 frontiers |
+| 2026-09-30 | same | same | daily-server A/B (164K ctx, chunk 1024, vision), MTP off | prefill +1.5–1.9%, decode +0.2–0.4% |
+| 2026-09-30 | same | same | daily-server A/B, **MTP on** | prefill **−9.1 / −9.3%**, request wall **+3.5 / +8.8% slower** (short / 35K); `DS4_QWEN4_MTP_PREFILL=off` ≈ neutral |
+
+Details, limits and the attempts that didn't measure anything: [results/2026-09-30-pr1056/](results/2026-09-30-pr1056/).
+
 ## What these numbers are, and are not
 
 - **Method:** ds4's own `ds4-bench` with the documented sweep:

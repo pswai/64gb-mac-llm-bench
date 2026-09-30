@@ -39,7 +39,14 @@ quiet)
         [ "$p" -eq "$n" ] && [ "$left" -eq 0 ] || exit 1
     fi
     if launchctl print "$LAUNCHD_LABEL" >/dev/null 2>&1; then
-        launchctl bootout "$LAUNCHD_LABEL" && echo "server stopped" && touch "$run/.hook-server-stopped"
+        spid=$(launchctl print "$LAUNCHD_LABEL" 2>/dev/null | awk '$1=="pid"{print $3; exit}')
+        launchctl bootout "$LAUNCHD_LABEL" && echo "server stop requested" && touch "$run/.hook-server-stopped"
+        # the port closes before the process exits (it may save caches on shutdown): wait for the pid
+        if [ -n "$spid" ]; then
+            for _ in $(seq 1 120); do kill -0 "$spid" 2>/dev/null || break; sleep 1; done
+            kill -0 "$spid" 2>/dev/null && { echo "server pid $spid still running after 120 s"; exit 1; }
+            echo "server pid $spid exited"
+        fi
     fi
     for _ in $(seq 1 60); do [ -z "$(listener)" ] && break; sleep 1; done
     [ -z "$(listener)" ] || { echo "server still listening"; exit 1; }

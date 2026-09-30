@@ -1,0 +1,65 @@
+2026-09-30 12:15:05 window start; hard stop 2026-09-30 17:30:05
+2026-09-30 12:15:05 free disk 197 GiB
+2026-09-30 12:15:05 PR head still b96a12b
+2026-09-30 12:15:05 built ds4-bench-0aaea5a @ 0aaea5a: ds4-bench 6ef71fda2de2 ds4-server <cron-id>
+2026-09-30 12:15:06 built ds4-pr1056-b96a12b @ b96a12b: ds4-bench 2358ab998207 ds4-server <cron-id>
+2026-09-30 12:15:06 build warnings: base 0, pr 0
+2026-09-30 12:15:31 ChatGPT/Codex quit
+2026-09-30 12:15:32 hook: paused 6 of 6 jobs, 0 still active
+2026-09-30 12:15:32 hook: server stop requested
+2026-09-30 12:15:33 hook: server pid 85956 exited
+2026-09-30 12:15:53 mode (b) start, limit 57344
+2026-09-30 12:15:54 block mtp-off: order A B B A
+2026-09-30 12:16:51   mtp-off-01-A short: prompt 3688 gen 800 prefill 511.51 decode 40.06 wall 27.275s
+2026-09-30 12:17:18   mtp-off-01-A short: prompt 3567 gen 800 prefill 508.33 decode 40.07 wall 27.051s
+2026-09-30 12:18:36   mtp-off-01-A deep: prompt 35193 gen 400 prefill 524.42 decode 39.77 wall 77.287s
+2026-09-30 12:18:37 mtp-off-01-A: valid=True swapin_pages=44 ready=2.2s
+2026-09-30 12:20:37   mtp-off-02-B short: prompt 3688 gen 800 prefill 517.93 decode 40.14 wall 27.112s
+2026-09-30 12:21:04   mtp-off-02-B short: prompt 3567 gen 800 prefill 523.3 decode 40.15 wall 26.85s
+2026-09-30 12:22:21   mtp-off-02-B deep: prompt 35193 gen 400 prefill 532.39 decode 39.95 wall 76.257s
+2026-09-30 12:22:22 mtp-off-02-B: valid=True swapin_pages=0 ready=4.5s
+2026-09-30 12:24:18   mtp-off-03-B short: prompt 3688 gen 800 prefill 514.72 decode 40.1 wall 27.177s
+2026-09-30 12:24:46   mtp-off-03-B short: prompt 3567 gen 800 prefill 521.7 decode 40.1 wall 26.9s
+2026-09-30 12:26:02   mtp-off-03-B deep: prompt 35193 gen 400 prefill 532.9 decode 39.89 wall 76.178s
+2026-09-30 12:26:03 mtp-off-03-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 12:28:00   mtp-off-04-A short: prompt 3688 gen 800 prefill 507.11 decode 39.95 wall 27.359s
+2026-09-30 12:28:28   mtp-off-04-A short: prompt 3567 gen 800 prefill 512.48 decode 40.02 wall 27.054s
+2026-09-30 12:29:45   mtp-off-04-A deep: prompt 35193 gen 400 prefill 525.54 decode 39.75 wall 77.143s
+2026-09-30 12:29:46 mtp-off-04-A: valid=True swapin_pages=64 ready=1.2s
+2026-09-30 12:30:46 block mtp-on: order A B C C B A
+2026-09-30 12:31:34   mtp-on-01-A short: prompt 3688 gen 800 prefill 502.28 decode 50.54 wall 23.236s
+2026-09-30 12:31:58   mtp-on-01-A short: prompt 3567 gen 800 prefill 508.08 decode 48.24 wall 23.715s
+2026-09-30 12:33:15   mtp-on-01-A deep: prompt 35193 gen 400 prefill 523.92 decode 47.94 wall 75.634s
+2026-09-30 12:33:16 mtp-on-01-A: valid=True swapin_pages=35 ready=1.0s
+2026-09-30 12:35:06   mtp-on-02-B short: prompt 3688 gen 800 prefill 461.54 decode 48.88 wall 24.427s
+2026-09-30 12:35:31   mtp-on-02-B short: prompt 3567 gen 800 prefill 462.62 decode 48.95 wall 24.167s
+2026-09-30 12:36:53   mtp-on-02-B deep: prompt 35193 gen 400 prefill 476.76 decode 49.39 wall 82.032s
+2026-09-30 12:36:54 mtp-on-02-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 12:38:41   mtp-on-03-C short: prompt 3688 gen 800 prefill 512.13 decode 49.15 wall 23.542s
+2026-09-30 12:39:06   mtp-on-03-C short: prompt 3567 gen 800 prefill 512.29 decode 47.85 wall 23.79s
+2026-09-30 12:40:21   mtp-on-03-C deep: prompt 35193 gen 400 prefill 530.13 decode 47.63 wall 74.896s
+2026-09-30 12:40:22 mtp-on-03-C: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 12:42:11   mtp-on-04-C short: prompt 3688 gen 800 prefill 513.04 decode 48.14 wall 23.872s
+2026-09-30 12:42:36   mtp-on-04-C short: prompt 3567 gen 800 prefill 516.87 decode 47.18 wall 23.949s
+2026-09-30 12:43:51   mtp-on-04-C deep: prompt 35193 gen 400 prefill 529.53 decode 46.34 wall 75.21s
+2026-09-30 12:43:53 mtp-on-04-C: valid=True swapin_pages=4 ready=1.1s
+2026-09-30 12:45:42   mtp-on-05-B short: prompt 3688 gen 800 prefill 461.65 decode 48.17 wall 24.659s
+2026-09-30 12:46:06   mtp-on-05-B short: prompt 3567 gen 800 prefill 464.49 decode 49.24 wall 24.035s
+2026-09-30 12:47:29   mtp-on-05-B deep: prompt 35193 gen 400 prefill 475.55 decode 48.61 wall 82.35s
+2026-09-30 12:47:30 mtp-on-05-B: valid=True swapin_pages=28 ready=1.0s
+2026-09-30 12:49:19   mtp-on-06-A short: prompt 3688 gen 800 prefill 508.74 decode 50.22 wall 23.243s
+2026-09-30 12:49:43   mtp-on-06-A short: prompt 3567 gen 800 prefill 509.65 decode 47.24 wall 24.046s
+2026-09-30 12:50:59   mtp-on-06-A deep: prompt 35193 gen 400 prefill 526.12 decode 47.04 wall 75.511s
+2026-09-30 12:51:00 mtp-on-06-A: valid=True swapin_pages=0 ready=1.2s
+2026-09-30 12:52:01 server A/B done
+2026-09-30 12:52:01 mode (b) exit 0
+2026-09-30 12:52:01 mode (a) start: pr1056-stock-limit
+2026-09-30 12:52:01 free disk 198 GiB
+2026-09-30 12:52:01 ABORT: ~/Dev/64gb-mac-llm-bench/scripts/wsz missing (see scripts/wsz.m)
+2026-09-30 12:52:01 mode (a) exit 1
+2026-09-30 12:52:01 all done
+2026-09-30 12:52:06 limit: 57344 MiB; 
+2026-09-30 12:52:07 hook: server restored: pid 87698 on :8001
+2026-09-30 12:52:08 hook: jobs active now: 6
+2026-09-30 12:52:09 ChatGPT/Codex reopened
+2026-09-30 12:52:09 FINAL: limit 57344; daily launchd pid '87698' listener '87698'; active crons 6; 199Gi free

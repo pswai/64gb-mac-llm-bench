@@ -1,0 +1,48 @@
+2026-09-30 12:53:04 window start; hard stop 2026-09-30 17:30:04
+2026-09-30 12:53:04 free disk 198 GiB
+2026-09-30 12:53:05 PR head still b96a12b
+2026-09-30 12:53:05 built ds4-bench-0aaea5a @ 0aaea5a: ds4-bench 6ef71fda2de2 ds4-server <cron-id>
+2026-09-30 12:53:05 built ds4-pr1056-b96a12b @ b96a12b: ds4-bench 2358ab998207 ds4-server <cron-id>
+2026-09-30 12:53:05 build warnings: base 0, pr 0
+2026-09-30 12:53:30 ChatGPT/Codex quit
+2026-09-30 12:53:32 hook: paused 6 of 6 jobs, 0 still active
+2026-09-30 12:53:32 hook: server stop requested
+2026-09-30 12:53:33 hook: server pid 87698 exited
+2026-09-30 12:53:53 mode (b) skipped (SKIP_B=1; completed in an earlier window)
+2026-09-30 12:53:53 mode (a) start: pr1056-stock-limit
+2026-09-30 12:53:53 free disk 198 GiB
+2026-09-30 12:53:53 WARNING: no QUIET_HOOK; stop other GPU and memory-heavy work yourself
+2026-09-30 12:53:53 hard stop at 2026-09-30 17:30:53
+2026-09-30 12:53:53 wired limit before: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 12:53:54 wired limit after: 0 MiB; recommendedMaxWorkingSetSize=55662788608 bytes (51.84 GiB, 53084 MiB)
+2026-09-30 12:54:14 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 464548,566500,2893925,164972,36226,11318904,18318374,747078
+2026-09-30 12:54:14 sha256 check skipped
+2026-09-30 12:54:14 start base-chunk2048-r1: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 13:20:28 end base-chunk2048-r1: rc=0 wall=1574s rows=32 swapin_pages=36
+2026-09-30 13:20:28 cooldown 120s
+2026-09-30 13:22:28 start pr-chunk2048-r1: [ds4-pr1056-b96a12b] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 13:48:23 end pr-chunk2048-r1: rc=0 wall=1555s rows=32 swapin_pages=63
+2026-09-30 13:48:23 cooldown 120s
+2026-09-30 13:50:23 start pr-chunk2048-r2: [ds4-pr1056-b96a12b] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 14:16:16 end pr-chunk2048-r2: rc=0 wall=1553s rows=32 swapin_pages=87
+2026-09-30 14:16:16 cooldown 120s
+2026-09-30 14:18:16 start base-chunk2048-r2: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 14:44:30 end base-chunk2048-r2: rc=0 wall=1574s rows=32 swapin_pages=24
+2026-09-30 14:44:30 cooldown 120s
+2026-09-30 14:46:30 start base-chunk2048-r3: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 15:12:45 end base-chunk2048-r3: rc=0 wall=1575s rows=32 swapin_pages=24
+2026-09-30 15:12:45 cooldown 120s
+2026-09-30 15:14:45 start pr-chunk2048-r3: [ds4-pr1056-b96a12b] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 15:40:38 end pr-chunk2048-r3: rc=0 wall=1553s rows=32 swapin_pages=24
+2026-09-30 15:40:38 cooldown 120s
+2026-09-30 15:42:38 all runs done
+~/Dev/64gb-mac-llm-bench/scripts/run-bench.sh: line 157: 88796 Terminated: 15          ( sleep $(( stop_epoch - now )); kill -TERM $$ )
+2026-09-30 15:42:38 LIMIT RESTORED: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 15:42:38 disk after: 199Gi free
+2026-09-30 15:42:38 mode (a) exit 0
+2026-09-30 15:42:38 all done
+2026-09-30 15:42:44 limit: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 15:42:45 hook: server restored: pid 18830 on :8001
+2026-09-30 15:42:46 hook: jobs active now: 6
+2026-09-30 15:42:46 ChatGPT/Codex reopened
+2026-09-30 15:42:46 FINAL: limit 57344; daily launchd pid '18830' listener '18830'; active crons 6; 199Gi free

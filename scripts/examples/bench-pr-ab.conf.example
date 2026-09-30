@@ -1,0 +1,23 @@
+# Example config for an A/B between a base checkout and a PR checkout (used 2026-09-30 for #1056).
+BASE_DIR=${BASE_DIR:-$HOME/src/ds4-base}        # clean worktree at the base commit, ds4-bench built
+PR_DIR=${PR_DIR:-$HOME/src/ds4-pr}              # clean worktree at the PR head, ds4-bench built
+DS4_DIR=$BASE_DIR                               # used for the shared speed-bench text
+EXPECT_COMMIT=                                  # per config below
+CONFIGS=${CONFIGS:-"base-chunk2048 pr-chunk2048"}
+QWEN=${QWEN:-$HOME/src/ds4/gguf/Qwen3.8-Flash-Next-Q2.gguf}
+
+config_model() { echo "$QWEN"; }
+config_flags() { case $1 in base-chunk2048|pr-chunk2048) echo "--prefill-chunk 2048" ;; *) echo "UNKNOWN" ;; esac; }
+config_ds4_dir() { case $1 in base-*) echo "$BASE_DIR" ;; pr-*) echo "$PR_DIR" ;; esac; }
+config_expect_commit() {
+    case $1 in
+        base-*) echo 0aaea5a238fb41a35106a551e73c8409dfb751ac ;;
+        pr-*)   echo b96a12be7bb3001e5ac3f5d43004c69ab865e48c ;;
+    esac
+}
+config_env() { echo "DS4_QWEN4_PREFILL_CHUNK=2048"; }
+model_expect() {
+    case $(basename "$1") in
+        Qwen3.8-Flash-Next-Q2.gguf) echo "147207127040 b1b93fa69aca5f187b0fb813aca8f3ec1beb5cf8cf0bd38cf041b93e0b6ccac9" ;;
+    esac
+}
