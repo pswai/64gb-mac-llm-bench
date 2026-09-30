@@ -1,0 +1,35 @@
+2026-09-30 18:12:14 block mtp-off: order A B B A
+2026-09-30 18:13:11   mtp-off-01-A short: prompt 3683 gen 800 prefill 534.18 decode 40.17 wall 27.006s
+2026-09-30 18:13:39   mtp-off-01-A short: prompt 3562 gen 800 prefill 530.85 decode 40.13 wall 26.843s
+2026-09-30 18:14:56   mtp-off-01-A deep: prompt 35187 gen 400 prefill 532.28 decode 39.92 wall 76.363s
+2026-09-30 18:14:57 mtp-off-01-A: valid=True swapin_pages=0 ready=2.3s
+2026-09-30 18:16:50   mtp-off-02-B short: prompt 3683 gen 800 prefill 517.39 decode 43.01 wall 25.777s
+2026-09-30 18:17:16   mtp-off-02-B short: prompt 3562 gen 800 prefill 517.16 decode 43.03 wall 25.583s
+2026-09-30 18:18:32   mtp-off-02-B deep: prompt 35187 gen 400 prefill 531.8 decode 42.74 wall 75.638s
+2026-09-30 18:18:33 mtp-off-02-B: valid=True swapin_pages=216 ready=1.1s
+2026-09-30 18:20:26   mtp-off-03-B short: prompt 3683 gen 800 prefill 517.23 decode 42.98 wall 25.795s
+2026-09-30 18:20:52   mtp-off-03-B short: prompt 3562 gen 800 prefill 521.25 decode 42.96 wall 25.568s
+2026-09-30 18:22:09   mtp-off-03-B deep: prompt 35187 gen 400 prefill 532.18 decode 42.72 wall 75.594s
+2026-09-30 18:22:09 mtp-off-03-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:24:05   mtp-off-04-A short: prompt 3683 gen 800 prefill 518.2 decode 40.11 wall 27.114s
+2026-09-30 18:24:33   mtp-off-04-A short: prompt 3562 gen 800 prefill 519.0 decode 40.1 wall 26.92s
+2026-09-30 18:25:50   mtp-off-04-A deep: prompt 35187 gen 400 prefill 533.12 decode 39.88 wall 76.149s
+2026-09-30 18:25:50 mtp-off-04-A: valid=True swapin_pages=16 ready=1.2s
+2026-09-30 18:26:51 block mtp-on: order A B B A
+2026-09-30 18:27:40   mtp-on-01-A short: prompt 3683 gen 800 prefill 464.89 decode 48.01 wall 24.668s
+2026-09-30 18:28:02   mtp-on-01-A short: prompt 3562 gen 800 prefill 466.39 decode 59.57 wall 21.181s
+2026-09-30 18:29:24   mtp-on-01-A deep: prompt 35187 gen 400 prefill 476.61 decode 48.79 wall 82.139s
+2026-09-30 18:29:25 mtp-on-01-A: valid=True swapin_pages=0 ready=1.0s
+2026-09-30 18:31:13   mtp-on-02-B short: prompt 3683 gen 800 prefill 476.86 decode 50.59 wall 23.6s
+2026-09-30 18:31:34   mtp-on-02-B short: prompt 3562 gen 800 prefill 477.71 decode 62.84 wall 20.299s
+2026-09-30 18:32:54   mtp-on-02-B deep: prompt 35187 gen 400 prefill 487.76 decode 51.37 wall 80.044s
+2026-09-30 18:32:55 mtp-on-02-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:34:43   mtp-on-03-B short: prompt 3683 gen 800 prefill 469.58 decode 50.6 wall 23.718s
+2026-09-30 18:35:04   mtp-on-03-B short: prompt 3562 gen 800 prefill 476.44 decode 62.87 wall 20.313s
+2026-09-30 18:36:24   mtp-on-03-B deep: prompt 35187 gen 400 prefill 488.44 decode 51.38 wall 79.931s
+2026-09-30 18:36:25 mtp-on-03-B: valid=True swapin_pages=0 ready=1.2s
+2026-09-30 18:38:15   mtp-on-04-A short: prompt 3683 gen 800 prefill 465.28 decode 47.99 wall 24.644s
+2026-09-30 18:38:36   mtp-on-04-A short: prompt 3562 gen 800 prefill 464.31 decode 59.54 wall 21.224s
+2026-09-30 18:39:59   mtp-on-04-A deep: prompt 35187 gen 400 prefill 477.94 decode 48.76 wall 81.944s
+2026-09-30 18:40:00 mtp-on-04-A: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:41:00 server A/B done

@@ -1,0 +1,125 @@
+2026-09-30 18:06:23 window start; hard stop 2026-09-30 23:00:23
+2026-09-30 18:06:23 free disk 198 GiB
+2026-09-30 18:06:24 PR head still b96a12b
+2026-09-30 18:06:24 experiment @ 1c12602: ds4 c262ae848db1 ds4-bench a0b356990018 ds4-server 7ef14aac7e27
+2026-09-30 18:06:49 ChatGPT/Codex quit
+2026-09-30 18:06:51 hook: paused 6 of 6 jobs, 0 still active
+2026-09-30 18:06:51 hook: server stop requested
+2026-09-30 18:06:52 hook: server pid 18830 exited
+2026-09-30 18:07:12 correctness start
+2026-09-30 18:12:14   == rome-short
+2026-09-30 18:12:14     logits   off vs on     : max|d|=0 over 248328 values
+2026-09-30 18:12:14     logits   off vs off.rep: max|d|=0 over 248328 values
+2026-09-30 18:12:14     logits    on vs on.rep : max|d|=0 over 248328 values
+2026-09-30 18:12:14     logprobs off vs on     : max|d|=0 over 10739 values
+2026-09-30 18:12:14     logprobs off vs off.rep: max|d|=0 over 10739 values
+2026-09-30 18:12:14     logprobs  on vs on.rep : max|d|=0 over 10739 values
+2026-09-30 18:12:14     text     sha off/on/off.rep/on.rep: b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57
+2026-09-30 18:12:14     mtptext  sha off/on/off.rep/on.rep: b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57
+2026-09-30 18:12:14     forced sites logged (off): none
+2026-09-30 18:12:14     forced sites logged (on): hc_down_tile, hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+2026-09-30 18:12:14   == roma575
+2026-09-30 18:12:14     logits   off vs on     : max|d|=0 over 248328 values
+2026-09-30 18:12:14     logits   off vs off.rep: max|d|=0 over 248328 values
+2026-09-30 18:12:14     logits    on vs on.rep : max|d|=0 over 248328 values
+2026-09-30 18:12:14     logprobs off vs on     : max|d|=0 over 10901 values
+2026-09-30 18:12:14     logprobs off vs off.rep: max|d|=0 over 10901 values
+2026-09-30 18:12:14     logprobs  on vs on.rep : max|d|=0 over 10901 values
+2026-09-30 18:12:14     text     sha off/on/off.rep/on.rep: 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9
+2026-09-30 18:12:14     mtptext  sha off/on/off.rep/on.rep: 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9
+2026-09-30 18:12:14     forced sites logged (off): none
+2026-09-30 18:12:14     forced sites logged (on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+2026-09-30 18:12:14   == sposi-long
+2026-09-30 18:12:14     logits   off vs on     : max|d|=0 over 248330 values
+2026-09-30 18:12:14     logits   off vs off.rep: max|d|=0 over 248330 values
+2026-09-30 18:12:14     logits    on vs on.rep : max|d|=0 over 248330 values
+2026-09-30 18:12:14     logprobs off vs on     : max|d|=0 over 11004 values
+2026-09-30 18:12:14     logprobs off vs off.rep: max|d|=0 over 11004 values
+2026-09-30 18:12:14     logprobs  on vs on.rep : max|d|=0 over 11004 values
+2026-09-30 18:12:14     text     sha off/on/off.rep/on.rep: 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e
+2026-09-30 18:12:14     mtptext  sha off/on/off.rep/on.rep: 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e
+2026-09-30 18:12:14     forced sites logged (off): none
+2026-09-30 18:12:14     forced sites logged (on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+2026-09-30 18:12:14   CORRECTNESS: IDENTICAL
+2026-09-30 18:12:14 server A/B start, limit 57344
+2026-09-30 18:12:14 block mtp-off: order A B B A
+2026-09-30 18:13:11   mtp-off-01-A short: prompt 3683 gen 800 prefill 534.18 decode 40.17 wall 27.006s
+2026-09-30 18:13:39   mtp-off-01-A short: prompt 3562 gen 800 prefill 530.85 decode 40.13 wall 26.843s
+2026-09-30 18:14:56   mtp-off-01-A deep: prompt 35187 gen 400 prefill 532.28 decode 39.92 wall 76.363s
+2026-09-30 18:14:57 mtp-off-01-A: valid=True swapin_pages=0 ready=2.3s
+2026-09-30 18:16:50   mtp-off-02-B short: prompt 3683 gen 800 prefill 517.39 decode 43.01 wall 25.777s
+2026-09-30 18:17:16   mtp-off-02-B short: prompt 3562 gen 800 prefill 517.16 decode 43.03 wall 25.583s
+2026-09-30 18:18:32   mtp-off-02-B deep: prompt 35187 gen 400 prefill 531.8 decode 42.74 wall 75.638s
+2026-09-30 18:18:33 mtp-off-02-B: valid=True swapin_pages=216 ready=1.1s
+2026-09-30 18:20:26   mtp-off-03-B short: prompt 3683 gen 800 prefill 517.23 decode 42.98 wall 25.795s
+2026-09-30 18:20:52   mtp-off-03-B short: prompt 3562 gen 800 prefill 521.25 decode 42.96 wall 25.568s
+2026-09-30 18:22:09   mtp-off-03-B deep: prompt 35187 gen 400 prefill 532.18 decode 42.72 wall 75.594s
+2026-09-30 18:22:09 mtp-off-03-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:24:05   mtp-off-04-A short: prompt 3683 gen 800 prefill 518.2 decode 40.11 wall 27.114s
+2026-09-30 18:24:33   mtp-off-04-A short: prompt 3562 gen 800 prefill 519.0 decode 40.1 wall 26.92s
+2026-09-30 18:25:50   mtp-off-04-A deep: prompt 35187 gen 400 prefill 533.12 decode 39.88 wall 76.149s
+2026-09-30 18:25:50 mtp-off-04-A: valid=True swapin_pages=16 ready=1.2s
+2026-09-30 18:26:51 block mtp-on: order A B B A
+2026-09-30 18:27:40   mtp-on-01-A short: prompt 3683 gen 800 prefill 464.89 decode 48.01 wall 24.668s
+2026-09-30 18:28:02   mtp-on-01-A short: prompt 3562 gen 800 prefill 466.39 decode 59.57 wall 21.181s
+2026-09-30 18:29:24   mtp-on-01-A deep: prompt 35187 gen 400 prefill 476.61 decode 48.79 wall 82.139s
+2026-09-30 18:29:25 mtp-on-01-A: valid=True swapin_pages=0 ready=1.0s
+2026-09-30 18:31:13   mtp-on-02-B short: prompt 3683 gen 800 prefill 476.86 decode 50.59 wall 23.6s
+2026-09-30 18:31:34   mtp-on-02-B short: prompt 3562 gen 800 prefill 477.71 decode 62.84 wall 20.299s
+2026-09-30 18:32:54   mtp-on-02-B deep: prompt 35187 gen 400 prefill 487.76 decode 51.37 wall 80.044s
+2026-09-30 18:32:55 mtp-on-02-B: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:34:43   mtp-on-03-B short: prompt 3683 gen 800 prefill 469.58 decode 50.6 wall 23.718s
+2026-09-30 18:35:04   mtp-on-03-B short: prompt 3562 gen 800 prefill 476.44 decode 62.87 wall 20.313s
+2026-09-30 18:36:24   mtp-on-03-B deep: prompt 35187 gen 400 prefill 488.44 decode 51.38 wall 79.931s
+2026-09-30 18:36:25 mtp-on-03-B: valid=True swapin_pages=0 ready=1.2s
+2026-09-30 18:38:15   mtp-on-04-A short: prompt 3683 gen 800 prefill 465.28 decode 47.99 wall 24.644s
+2026-09-30 18:38:36   mtp-on-04-A short: prompt 3562 gen 800 prefill 464.31 decode 59.54 wall 21.224s
+2026-09-30 18:39:59   mtp-on-04-A deep: prompt 35187 gen 400 prefill 477.94 decode 48.76 wall 81.944s
+2026-09-30 18:40:00 mtp-on-04-A: valid=True swapin_pages=0 ready=1.1s
+2026-09-30 18:41:00 server A/B done
+2026-09-30 18:41:00 server A/B exit 0
+2026-09-30 18:41:00 mode (a) start: m1tune-stock-limit
+2026-09-30 18:41:00 free disk 198 GiB
+2026-09-30 18:41:00 WARNING: no QUIET_HOOK; stop other GPU and memory-heavy work yourself
+2026-09-30 18:41:01 hard stop at 2026-09-30 23:00:01
+2026-09-30 18:41:01 wired limit before: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 18:41:01 wired limit after: 0 MiB; recommendedMaxWorkingSetSize=55662788608 bytes (51.84 GiB, 53084 MiB)
+2026-09-30 18:41:21 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 645162,468807,2801342,152192,74616,11320431,18318374,747946
+2026-09-30 18:41:21 sha256 check skipped
+2026-09-30 18:41:21 start exp-off-r1: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 19:07:15 end exp-off-r1: rc=0 wall=1554s rows=32 swapin_pages=11
+2026-09-30 19:07:15 cooldown 120s
+2026-09-30 19:09:15 start exp-on-r1: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 19:35:02 end exp-on-r1: rc=0 wall=1547s rows=32 swapin_pages=0
+2026-09-30 19:35:02 cooldown 120s
+2026-09-30 19:37:03 start exp-on-r2: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:02:50 end exp-on-r2: rc=0 wall=1547s rows=32 swapin_pages=6772
+2026-09-30 20:02:50 INVALID exp-on-r2: swap-ins 6772 pages; skipping remaining reps of exp-on
+2026-09-30 20:02:50 cooldown 120s
+2026-09-30 20:04:50 start exp-off-r2: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:30:44 end exp-off-r2: rc=0 wall=1554s rows=32 swapin_pages=56
+2026-09-30 20:30:44 cooldown 120s
+2026-09-30 20:32:44 start exp-off-r3: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:58:39 end exp-off-r3: rc=0 wall=1554s rows=32 swapin_pages=12
+2026-09-30 20:58:39 cooldown 120s
+2026-09-30 21:00:39 skip exp-on-r3 (earlier rep swapped)
+2026-09-30 21:00:39 cooldown 120s
+2026-09-30 21:02:39 replacement rep 4 for exp-on (valid so far 1)
+2026-09-30 21:02:39 start exp-on-r4: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 21:28:27 end exp-on-r4: rc=0 wall=1547s rows=32 swapin_pages=71
+2026-09-30 21:28:27 cooldown 120s
+2026-09-30 21:30:27 replacement rep 5 for exp-on (valid so far 2)
+2026-09-30 21:30:27 start exp-on-r5: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 21:56:14 end exp-on-r5: rc=0 wall=1547s rows=32 swapin_pages=30
+2026-09-30 21:56:14 cooldown 120s
+2026-09-30 21:58:14 all runs done
+~/Dev/64gb-mac-llm-bench/scripts/run-bench.sh: line 157: 24444 Terminated: 15          ( sleep $(( stop_epoch - now )); kill -TERM $$ )
+2026-09-30 21:58:14 LIMIT RESTORED: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 21:58:14 disk after: 198Gi free
+2026-09-30 21:58:14 mode (a) exit 0
+2026-09-30 21:58:14 all done
+2026-09-30 21:58:20 limit: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 21:58:21 hook: server restored: pid 58684 on :8001
+2026-09-30 21:58:22 hook: jobs active now: 6
+2026-09-30 21:58:22 ChatGPT/Codex reopened
+2026-09-30 21:58:22 FINAL: limit 57344; daily launchd pid '58684' listener '58684'; active crons 6; 198Gi free

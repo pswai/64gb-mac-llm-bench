@@ -1,0 +1,109 @@
+diff --git a/ds4_metal.m b/ds4_metal.m
+index 7ba65ae..cd5f295 100644
+--- a/ds4_metal.m
++++ b/ds4_metal.m
+@@ -1611,6 +1611,7 @@ static int ds4_gpu_finish_command_buffer(id<MTLCommandBuffer> cb, int owned, con
+ }
+ 
+ static int ds4_gpu_device_name_contains(const char *needle);
++static int ds4_gpu_m1max_tuning_enabled(int site);
+ 
+ static int ds4_gpu_use_m5_or_m6_private_scratch(void) {
+     static int initialized;
+@@ -2787,6 +2788,33 @@ static int ds4_gpu_device_name_contains(const char *needle) {
+     return g_metal_device_name[0] != '\0' && strstr(g_metal_device_name, needle) != NULL;
+ }
+ 
++/* Opt-in experiment: DS4_METAL_M1MAX_TUNING=1 applies the M1 Max-measured
++ * resident Q2 dispatch choices on the current device as well. Unset keeps the
++ * device-name gate unchanged. Streaming, Q4/MXFP4 and M3/M5/M6 gates are not
++ * affected. Each site logs once to stderr the first time the override (not
++ * the native M1 Max gate) enables it, so runs record which paths fired. */
++static int ds4_gpu_m1max_tuning_enabled(int site) {
++    static int forced = -1;
++    static unsigned logged = 0;
++    static unsigned mask = 0x7fu;
++    static const char *names[] = {"q8_nr4_proj", "hc_down_tile", "hc_norm_reuse",
++                                  "hc_mix_reuse", "iq2_nr2_mid", "q2k_down_reuse", "q8_mtp_rows"};
++    if (ds4_gpu_device_name_contains("M1 Max")) return 1;
++    if (forced < 0) {
++        const char *e = getenv("DS4_METAL_M1MAX_TUNING");
++        forced = e && strcmp(e, "1") == 0;
++        const char *m = getenv("DS4_METAL_M1MAX_TUNING_MASK");   /* optional per-site isolation */
++        if (forced && m && m[0]) mask = (unsigned)strtoul(m, NULL, 0);
++    }
++    if (forced && !(mask & (1u << site))) return 0;
++    if (forced && site >= 0 && site < 7 && !(logged & (1u << site))) {
++        logged |= 1u << site;
++        fprintf(stderr, "ds4: DS4_METAL_M1MAX_TUNING applied: %s\n", names[site]);
++    }
++    return forced;
++}
++
++
+ int ds4_gpu_device_is_pre_m5_apple_silicon(void) {
+     return strncmp(g_metal_device_name, "Apple M", 7) == 0 &&
+            g_metal_device_name[7] >= '1' &&
+@@ -19580,7 +19608,7 @@ static int ds4_gpu_matmul_q8_0_legacy_tensor(
+                 (in_dim == 2560u && (out_dim == 6144u || out_dim == 10240u || out_dim == 12288u)) ||
+                 (in_dim == 6144u && out_dim == 2560u);
+             if (qwen_rows4 && wide_qwen && mv_dispatch.nsg == 4 &&
+-                !ds4_gpu_tp_world_is_two() && ds4_gpu_device_name_contains("M1 Max")) {
++                !ds4_gpu_tp_world_is_two() && ds4_gpu_m1max_tuning_enabled(0)) {
+                 mv_dispatch.function_name = "kernel_mul_mv_q8_0_f32_nr4";
+                 mv_dispatch.nr0 = 4;
+                 mv_dispatch.smem = 32u * 4u * sizeof(float);
+@@ -21368,7 +21396,7 @@ static int ds4_gpu_matmul_f16_tensor_impl(
+          * accumulation order. Leave other devices and larger batches on
+          * the generic tile until their parallelism tradeoff is measured. */
+         const bool hc_down = in_dim == 10240u && out_dim == 320u &&
+-            n_tok > 8u && n_tok <= 128u && ds4_gpu_device_name_contains("M1 Max");
++            n_tok > 8u && n_tok <= 128u && ds4_gpu_m1max_tuning_enabled(1);
+         const NSUInteger tile_rows = hc_down ? 32u : 64u;
+         const NSUInteger tile_tokens = hc_down ? 16u : 32u;
+         const bool bc_inp = (in_dim % 32u) != 0;
+@@ -48976,7 +49004,7 @@ int ds4_gpu_qwen4_hc_norm_tensor(
+             reuse = true;
+         } else if (reuse_env == NULL || strcmp(reuse_env, "0") != 0) {
+             const bool m1_prefill = weight_type == 1u && n_tokens >= 48u && n_tokens <= 256u &&
+-                                   ds4_gpu_device_name_contains("M1 Max");
++                                   ds4_gpu_m1max_tuning_enabled(2);
+             const bool large_prefill = n_tokens >= 8192u &&
+                 (ds4_gpu_device_name_contains("M3 Ultra") || ds4_gpu_device_is_m5_or_m6_apple_silicon());
+             reuse = n_embd == 2560u && n_hc == 4u && n_inject == 4u &&
+@@ -49013,7 +49041,7 @@ int ds4_gpu_qwen4_hc_gate_mix_tensor(
+      * output rows in a threadgroup. The existing override retains both
+      * original kernels for numerical and timing comparisons. */
+     const bool reuse = !pair && weight_type == 1u && n_rank == 320u &&
+-        prefetch_override < 0 && ds4_gpu_device_name_contains("M1 Max");
++        prefetch_override < 0 && ds4_gpu_m1max_tuning_enabled(3);
+     const bool prefetch = weight_type == 1u &&
+         (prefetch_override >= 0 ? prefetch_override > 0 : ds4_gpu_device_is_m5_or_m6_apple_silicon());
+     const int kernel = pair ? (prefetch ? QWEN4_K_HC_GATE_MIX_PAIR_F16_PF
+@@ -50070,7 +50098,7 @@ int ds4_gpu_qwen4_moe_mid_tensor(
+      * the narrower single-row dispatch policy below. */
+     const bool iq2 = weight_type == 16u && nr == 2u &&
+         ds4_gpu_env_bool("DS4_QWEN4_MOE_MV_SPECIALIZE") != 0 &&
+-        ds4_gpu_device_name_contains("M1 Max");
++        ds4_gpu_m1max_tuning_enabled(4);
+     /* Masked dispatches compact only the grid. The kernel restores original
+      * slot indices, so shared placement and output strides stay unchanged. */
+     const uint32_t dispatch_slots = qwen4_moe_dispatch_slots(&args, n_out);
+@@ -50125,7 +50153,7 @@ int ds4_gpu_qwen4_moe_down_tensor(
+      * accumulation order. Keep other widths, row tiles and devices unchanged. */
+     const bool q2 = weight_type == 10u && ff_dim == 640u && rows_per_tg == nsg * 2u &&
+         ds4_gpu_env_bool("DS4_QWEN4_MOE_MV_SPECIALIZE") != 0 &&
+-        ds4_gpu_device_name_contains("M1 Max");
++        ds4_gpu_m1max_tuning_enabled(5);
+     /* Request four MXFP4 blocks per lane ahead. Explicit FMA matches the
+      * plain kernel in fast math; strict math keeps its noncontracted path,
+      * even with the diagnostic override. Use the compiled library's mode.
+@@ -51295,7 +51323,7 @@ int ds4_gpu_qwen4_mtp_project_tensor(
+      * existing dispatch. The optimized layout is emitted by mtp_stage. */
+     if (n_embd != 2560u || n_hc != 4u || n_tokens > 3u || rows > mv_max ||
+         (rows > 8u && ds4_gpu_env_bool("DS4_METAL_Q8_PREFILL_PROFILE") > 0) ||
+-        !ds4_gpu_device_name_contains("M1 Max")) {
++        !ds4_gpu_m1max_tuning_enabled(6)) {
+         return ds4_gpu_qwen4_matmul_q8_0_tensor(out, model_map, model_size, weight_offset,
+                                                in_dim, n_embd, cat, rows);
+     }

@@ -1,5 +1,14 @@
 # History
 
+## 2026-09-30 (evening): #1056's M1 Max-gated paths on the M4 Max
+
+- An opt-in local patch (`DS4_METAL_M1MAX_TUNING=1`, 7 gates) was tested on the same binary, off vs on.
+- **Correctness gate passed:** logits, logprobs and text identical on 3 prompts, MTP off and on.
+- **Speed:** decode +6.8 to +7.5% (sweep), +5.3 to +7.2% (server); prefill unchanged.
+- One flag-on sweep run was excluded by the swap rule and replaced; that changed the run order
+  (noted in the results).
+- **Harness fix:** the server A/B now uses fixed per-slot prompts, so outputs compare across arms.
+
 ## 2026-09-30: antirez/ds4#1056 measured before merge (`b96a12b` vs `0aaea5a`)
 
 - **Official sweep** at the macOS default limit, 3 + 3 runs, all valid: the PR is +1.1–1.75% prefill

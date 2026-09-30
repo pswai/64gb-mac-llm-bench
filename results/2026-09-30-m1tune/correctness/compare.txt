@@ -1,0 +1,34 @@
+== rome-short
+  logits   off vs on     : max|d|=0 over 248328 values
+  logits   off vs off.rep: max|d|=0 over 248328 values
+  logits    on vs on.rep : max|d|=0 over 248328 values
+  logprobs off vs on     : max|d|=0 over 10739 values
+  logprobs off vs off.rep: max|d|=0 over 10739 values
+  logprobs  on vs on.rep : max|d|=0 over 10739 values
+  text     sha off/on/off.rep/on.rep: b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57
+  mtptext  sha off/on/off.rep/on.rep: b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57 b84a489e8f85db57
+  forced sites logged (off): none
+  forced sites logged (on): hc_down_tile, hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+== roma575
+  logits   off vs on     : max|d|=0 over 248328 values
+  logits   off vs off.rep: max|d|=0 over 248328 values
+  logits    on vs on.rep : max|d|=0 over 248328 values
+  logprobs off vs on     : max|d|=0 over 10901 values
+  logprobs off vs off.rep: max|d|=0 over 10901 values
+  logprobs  on vs on.rep : max|d|=0 over 10901 values
+  text     sha off/on/off.rep/on.rep: 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9
+  mtptext  sha off/on/off.rep/on.rep: 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9 32ac896231a5fda9
+  forced sites logged (off): none
+  forced sites logged (on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+== sposi-long
+  logits   off vs on     : max|d|=0 over 248330 values
+  logits   off vs off.rep: max|d|=0 over 248330 values
+  logits    on vs on.rep : max|d|=0 over 248330 values
+  logprobs off vs on     : max|d|=0 over 11004 values
+  logprobs off vs off.rep: max|d|=0 over 11004 values
+  logprobs  on vs on.rep : max|d|=0 over 11004 values
+  text     sha off/on/off.rep/on.rep: 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e
+  mtptext  sha off/on/off.rep/on.rep: 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e 56dde03cabf7c45e
+  forced sites logged (off): none
+  forced sites logged (on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+CORRECTNESS: IDENTICAL

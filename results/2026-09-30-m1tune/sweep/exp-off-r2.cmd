@@ -1,0 +1,1 @@
+(cd ds4-pr1056-m1tune) env DS4_QWEN4_PREFILL_CHUNK=2048 ./ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048 --prompt-file speed-bench/promessi_sposi.txt --ctx-start 2048 --ctx-max 65536 --step-incr 2048 --gen-tokens 128

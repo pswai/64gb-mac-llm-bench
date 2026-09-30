@@ -1,0 +1,36 @@
+2026-09-30 18:41:00 free disk 198 GiB
+2026-09-30 18:41:00 WARNING: no QUIET_HOOK; stop other GPU and memory-heavy work yourself
+2026-09-30 18:41:01 hard stop at 2026-09-30 23:00:01
+2026-09-30 18:41:01 wired limit before: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 18:41:01 wired limit after: 0 MiB; recommendedMaxWorkingSetSize=55662788608 bytes (51.84 GiB, 53084 MiB)
+2026-09-30 18:41:21 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 645162,468807,2801342,152192,74616,11320431,18318374,747946
+2026-09-30 18:41:21 sha256 check skipped
+2026-09-30 18:41:21 start exp-off-r1: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 19:07:15 end exp-off-r1: rc=0 wall=1554s rows=32 swapin_pages=11
+2026-09-30 19:07:15 cooldown 120s
+2026-09-30 19:09:15 start exp-on-r1: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 19:35:02 end exp-on-r1: rc=0 wall=1547s rows=32 swapin_pages=0
+2026-09-30 19:35:02 cooldown 120s
+2026-09-30 19:37:03 start exp-on-r2: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:02:50 end exp-on-r2: rc=0 wall=1547s rows=32 swapin_pages=6772
+2026-09-30 20:02:50 INVALID exp-on-r2: swap-ins 6772 pages; skipping remaining reps of exp-on
+2026-09-30 20:02:50 cooldown 120s
+2026-09-30 20:04:50 start exp-off-r2: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:30:44 end exp-off-r2: rc=0 wall=1554s rows=32 swapin_pages=56
+2026-09-30 20:30:44 cooldown 120s
+2026-09-30 20:32:44 start exp-off-r3: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 20:58:39 end exp-off-r3: rc=0 wall=1554s rows=32 swapin_pages=12
+2026-09-30 20:58:39 cooldown 120s
+2026-09-30 21:00:39 skip exp-on-r3 (earlier rep swapped)
+2026-09-30 21:00:39 cooldown 120s
+2026-09-30 21:02:39 replacement rep 4 for exp-on (valid so far 1)
+2026-09-30 21:02:39 start exp-on-r4: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 21:28:27 end exp-on-r4: rc=0 wall=1547s rows=32 swapin_pages=71
+2026-09-30 21:28:27 cooldown 120s
+2026-09-30 21:30:27 replacement rep 5 for exp-on (valid so far 2)
+2026-09-30 21:30:27 start exp-on-r5: [ds4-pr1056-m1tune] DS4_QWEN4_PREFILL_CHUNK=2048 DS4_METAL_M1MAX_TUNING=1 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-09-30 21:56:14 end exp-on-r5: rc=0 wall=1547s rows=32 swapin_pages=30
+2026-09-30 21:56:14 cooldown 120s
+2026-09-30 21:58:14 all runs done
+2026-09-30 21:58:14 LIMIT RESTORED: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-09-30 21:58:14 disk after: 198Gi free

@@ -59,6 +59,13 @@ release result.
 
 Details, limits and the attempts that didn't measure anything: [results/2026-09-30-pr1056/](results/2026-09-30-pr1056/).
 
+**Follow-up (2026-09-30, evening):** the PR's resident decode paths are gated on the GPU name
+"M1 Max". Forcing them on for this M4 Max with an opt-in env var (a local experiment, not upstream):
+- **Correctness:** first-token logits, 64-step logprobs and greedy text are **bit-/byte-identical**.
+- **Speed:** decode **+6.8 to +7.5%** in the official sweep (32/32 frontiers separate), and +5.3 to
+  +7.2% in a daily-server A/B; prefill unchanged.
+- Details: [results/2026-09-30-m1tune/](results/2026-09-30-m1tune/).
+
 ## What these numbers are, and are not
 
 - **Method:** ds4's own `ds4-bench` with the documented sweep:

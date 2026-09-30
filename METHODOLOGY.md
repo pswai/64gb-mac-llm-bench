@@ -167,6 +167,12 @@ sweep); the 2026-09-28 data predates it.
   - **Known gap:** the prefix differs per request, so outputs are not comparable across arms.
     Future runs should reuse the same prefix per slot across arms, and rely on restarting the
     server to clear its cache instead.
+- **Correctness gate before speed:** for any change that should be numerically neutral, the window
+  first compares full first-token logits, 64 steps of decode logprobs and greedy text (MTP off and
+  on) on fixed prompts, and stops before any speed test on a difference.
+  (`scripts/examples/m1tune-correctness.sh`, `m1tune-compare.py`.)
+- **Server A/B prompts** are fixed per slot with `--fixed-prefix` (since 2026-09-30 evening), so
+  outputs compare across arms.
 - **Chunk size in the official sweep:** the session path honours `--prefill-chunk`, but the sweep
   adds exactly 2,048 tokens per frontier. Any chunk ≥ 2048 therefore does the same prefill work, and
   changes only buffer sizes.
