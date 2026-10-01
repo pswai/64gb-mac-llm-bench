@@ -62,7 +62,7 @@ Medians (4 short / 2 deep requests per arm; ranges in `startups.jsonl`):
 These are inferences, labelled as such.
 - **With MTP off, the PR is a small, consistent gain on this machine:** +1.2–1.9% prefill and
   +0.2–0.6% decode, in both the official sweep and the server test.
-  - slycrel measured +14–17% decode on an M1 Max 64 GB.
+  - slycrel's merge-readiness round on an M1 Max 64 GB (`a6ad636` merged onto `0aaea5a`, means of 2) measured decode +9.3 to +17.0%.
   - Several of the PR's decode dispatch choices are enabled only when the device name contains
     "M1 Max". Others are gated to "M3 Ultra" or M5/M6. An M4 Max matches none of them: observed
     in the code, but not traced to specific gains.

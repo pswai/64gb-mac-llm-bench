@@ -33,15 +33,15 @@ Are they correct and faster on an M4 Max?
 
 - **Prompts:** `rome-short` (29 tokens), `roma575` (Giorgio's prompt from the #1056 thread, sha256
   `5da9ad53…` matches his), and `sposi-long` (first 20,500 characters of `promessi_sposi.txt`,
-  ~5.8K tokens).
+  5,942 tokens).
 - **Settings:** `./ds4 --ctx 16384 --prefill-chunk 2048 --temp 0 --nothink`, with
   `DS4_QWEN4_PREFILL_CHUNK=2048`.
 - **Order:** off, on, on, off per prompt; the repeats check determinism.
 
 | Check | off vs on | each arm vs its repeat |
 |---|---|---|
-| `--dump-logits` (248,328–248,330 values) | max \|Δ\| = 0, 3/3 prompts | identical |
-| `--dump-logprobs`, 64 steps (10,739–11,004 values) | max \|Δ\| = 0 | identical |
+| `--dump-logits` (248,328–248,330 values), MTP off | max \|Δ\| = 0, 3/3 prompts | identical |
+| `--dump-logprobs`, 64 steps (10,739–11,004 values), MTP off | max \|Δ\| = 0 | identical |
 | Greedy text `-n 128`, MTP off | byte-identical | identical |
 | Greedy text `-n 128 --mtp` | byte-identical (and equal to MTP off) | identical |
 
@@ -66,9 +66,9 @@ Medians over 2 startups per arm (Δ = B vs A; * = min–max ranges separate):
 
 | | MTP off prefill | decode | wall | MTP on prefill | decode | wall |
 |---|---:|---:|---:|---:|---:|---:|
-| short 1 (3,567 tok, 800 gen) | 526.19 → 517.31 (−1.69%*) | 40.14 → 42.99 (+7.11%*) | 27.06 → 25.79 s (−4.71%*) | 465.08 → 473.22 (+1.75%*) | 48.00 → 50.59 (+5.41%*) | 24.66 → 23.66 s (−4.04%*) |
-| short 2 (3,688 tok, 800 gen) | 524.92 → 519.20 (−1.09%) | 40.12 → 43.00 (+7.18%*) | 26.88 → 25.58 s (−4.86%*) | 465.35 → 477.07 (+2.52%*) | 59.55 → 62.86 (+5.54%*) | 21.20 → 20.31 s (−4.23%*) |
-| deep (35,193 tok, 400 gen) | 532.70 → 531.99 (−0.13%*) | 39.90 → 42.73 (+7.09%*) | 76.26 → 75.62 s (−0.84%*) | 477.27 → 488.10 (+2.27%*) | 48.77 → 51.38 (+5.33%*) | 82.04 → 79.99 s (−2.50%*) |
+| short 1 (3,683 tok, 800 gen) | 526.19 → 517.31 (−1.69%*) | 40.14 → 42.99 (+7.11%*) | 27.06 → 25.79 s (−4.71%*) | 465.08 → 473.22 (+1.75%*) | 48.00 → 50.59 (+5.41%*) | 24.66 → 23.66 s (−4.04%*) |
+| short 2 (3,562 tok, 800 gen) | 524.92 → 519.20 (−1.09%) | 40.12 → 43.00 (+7.18%*) | 26.88 → 25.58 s (−4.86%*) | 465.35 → 477.07 (+2.52%*) | 59.55 → 62.86 (+5.54%*) | 21.20 → 20.31 s (−4.23%*) |
+| deep (35,187 tok, 400 gen) | 532.70 → 531.99 (−0.13%*) | 39.90 → 42.73 (+7.09%*) | 76.26 → 75.62 s (−0.84%*) | 477.27 → 488.10 (+2.27%*) | 48.77 → 51.38 (+5.33%*) | 82.04 → 79.99 s (−2.50%*) |
 
 The MTP-off prefill dip on the short prompts is **unexplained**. No widened prefill path fired, and the
 sweep shows prefill unchanged.
@@ -101,6 +101,9 @@ Medians, prefill / gen t/s:
 
 ## Limits
 
+- **Thermals:** `pmset -g therm` was sampled every ~5 s in the sweep runs, with no warnings; the server A/B harness doesn't sample thermals. Fans were not pinned.
+
+- The +7% here is short of slycrel's +9.3 to +17.0% M1 Max decode gain for the whole PR. Whether these paths benefit the M1 Max more, or other PR changes account for the rest, is unexplained.
 - One machine, one M4 variant (M4 Max). The two prefill-only paths never fired, so they're
   unmeasured. MTP acceptance isn't logged by the server.
 - The patch is an experiment harness (logging, mask), not a merge-ready change.
