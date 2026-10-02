@@ -1,5 +1,13 @@
 # History
 
+## 2026-10-02/03: #1056 retest at `0231312` (M2–M4 tuning by device name)
+
+- **No env var or patch, one session, all runs valid:** head vs base gen +6.3 to +8.9%, prefill +1.1
+  to +2.0% (sweep, raised limit). Server: MTP off decode +6.8 to +8.1%; with MTP on, still ~7%
+  prefill cost from the MTP prompt preparation.
+- **Correctness:** head = 09-30 opt-in patch (bit/byte-identical). Head vs base differs on all 3
+  prompts, from non-tuning PR changes; my pre-run expectation of single-chunk parity was wrong.
+
 ## 2026-09-30 (evening): #1056's M1 Max-gated paths on the M4 Max
 
 - An opt-in local patch (`DS4_METAL_M1MAX_TUNING=1`, 7 gates) was tested on the same binary, off vs on.

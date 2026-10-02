@@ -1,0 +1,55 @@
+== rome-short
+  head vs ref-on   logits  : max|d|=0 over 248328
+  head vs ref-on   logprobs: max|d|=0 over 10739
+  head vs ref-on   text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs ref-on   mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs ref-off  logits  : max|d|=0 over 248328
+  head vs ref-off  logprobs: max|d|=0 over 10739
+  head vs ref-off  text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs ref-off  mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs head.rep logits  : max|d|=0 over 248328
+  head vs head.rep logprobs: max|d|=0 over 10739
+  head vs head.rep text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs head.rep mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs base     logits  : max|d|=0.29479742 over 248328   <-- DIFFERENT
+  head vs base     logprobs: length 10739 vs 10731   <-- DIFFERENT
+  head vs base     text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs base     mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  ref-patch forced sites logged (ref-on): hc_down_tile, hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+== roma575
+  head vs ref-on   logits  : max|d|=0 over 248328
+  head vs ref-on   logprobs: max|d|=0 over 10901
+  head vs ref-on   text    : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs ref-on   mtptext : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs ref-off  logits  : max|d|=0 over 248328
+  head vs ref-off  logprobs: max|d|=0 over 10901
+  head vs ref-off  text    : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs ref-off  mtptext : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs head.rep logits  : max|d|=0 over 248328
+  head vs head.rep logprobs: max|d|=0 over 10901
+  head vs head.rep text    : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs head.rep mtptext : 32ac896231a5fda9 vs 32ac896231a5fda9
+  head vs base     logits  : max|d|=0.61770618 over 248328   <-- DIFFERENT
+  head vs base     logprobs: length 10901 vs 10890   <-- DIFFERENT
+  head vs base     text    : 32ac896231a5fda9 vs f2af8811f8198e7f   <-- DIFFERENT
+  head vs base     mtptext : 32ac896231a5fda9 vs f2af8811f8198e7f   <-- DIFFERENT
+  ref-patch forced sites logged (ref-on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+== sposi-long
+  head vs ref-on   logits  : max|d|=0 over 248330
+  head vs ref-on   logprobs: max|d|=0 over 11004
+  head vs ref-on   text    : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs ref-on   mtptext : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs ref-off  logits  : max|d|=0 over 248330
+  head vs ref-off  logprobs: max|d|=0 over 11004
+  head vs ref-off  text    : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs ref-off  mtptext : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs head.rep logits  : max|d|=0 over 248330
+  head vs head.rep logprobs: max|d|=0 over 11004
+  head vs head.rep text    : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs head.rep mtptext : 56dde03cabf7c45e vs 56dde03cabf7c45e
+  head vs base     logits  : max|d|=0.95255184 over 248330   <-- DIFFERENT
+  head vs base     logprobs: length 11004 vs 11001   <-- DIFFERENT
+  head vs base     text    : 56dde03cabf7c45e vs 093f5e014f1f73e9   <-- DIFFERENT
+  head vs base     mtptext : 56dde03cabf7c45e vs 093f5e014f1f73e9   <-- DIFFERENT
+  ref-patch forced sites logged (ref-on): hc_mix_reuse, iq2_nr2_mid, q2k_down_reuse, q8_mtp_rows, q8_nr4_proj
+GATE (head vs ref-on/ref-off/head.rep): IDENTICAL

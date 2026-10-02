@@ -66,6 +66,13 @@ Details, limits and the attempts that didn't measure anything: [results/2026-09-
   +7.2% in a daily-server A/B; prefill unchanged.
 - Details: [results/2026-09-30-m1tune/](results/2026-09-30-m1tune/).
 
+**Retest at the PR's new head (2026-10-02, `0231312`):** the author extended the M1 Max tuning to
+M2–M4 by device name. With no env var or patch, on this M4 Max vs base `0aaea5a`, in one session:
+- **Speed:** gen **+6.3 to +8.9%** and prefill +1.1 to +2.0% (32/32 frontiers separate).
+- **Output:** identical to the 09-30 opt-in patch.
+- **Head vs base:** outputs differ, from the PR's other changes, not the tuning; unexplained.
+- Details: [results/2026-10-02-pr1056-0231312/](results/2026-10-02-pr1056-0231312/).
+
 ## What these numbers are, and are not
 
 - **Method:** ds4's own `ds4-bench` with the documented sweep:
