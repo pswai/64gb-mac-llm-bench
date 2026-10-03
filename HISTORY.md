@@ -1,5 +1,12 @@
 # History
 
+## 2026-10-03/04: #1056 at `37f66ba` (resident prefill back to main's arithmetic)
+
+- **Correctness (18:41, ~5 min of server downtime):** identical to base `0aaea5a` on all 3 prompts;
+  the 10-02 drift is gone.
+- **Speed (23:00–02:25, all runs valid):** gen +6.2 to +8.7%, prefill +1.0 to +2.0% vs base
+  (32/32 separate), the same as `0231312`. With MTP on, ~6–7% prefill cost remains.
+
 ## 2026-10-02/03: #1056 retest at `0231312` (M2–M4 tuning by device name)
 
 - **No env var or patch, one session, all runs valid:** head vs base gen +6.3 to +8.9%, prefill +1.1

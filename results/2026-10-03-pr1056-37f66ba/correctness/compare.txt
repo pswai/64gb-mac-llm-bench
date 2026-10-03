@@ -1,0 +1,40 @@
+== rome-short
+  new vs base     logits  : max|d|=0 over 248328
+  new vs base     logprobs: max|d|=0 over 10731
+  new vs base     text    : b84a489e8f85db57 vs b84a489e8f85db57
+  new vs base     mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  new vs prev     logits  : max|d|=0.29479742 over 248328   <-- DIFFERENT
+  new vs prev     logprobs: length 10731 vs 10739   <-- DIFFERENT
+  new vs prev     text    : b84a489e8f85db57 vs b84a489e8f85db57
+  new vs prev     mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  new vs new.rep  logits  : max|d|=0 over 248328
+  new vs new.rep  logprobs: max|d|=0 over 10731
+  new vs new.rep  text    : b84a489e8f85db57 vs b84a489e8f85db57
+  new vs new.rep  mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+== roma575
+  new vs base     logits  : max|d|=0 over 248328
+  new vs base     logprobs: max|d|=0 over 10890
+  new vs base     text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  new vs base     mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+  new vs prev     logits  : max|d|=0.61770618 over 248328   <-- DIFFERENT
+  new vs prev     logprobs: length 10890 vs 10901   <-- DIFFERENT
+  new vs prev     text    : f2af8811f8198e7f vs 32ac896231a5fda9   <-- DIFFERENT
+  new vs prev     mtptext : f2af8811f8198e7f vs 32ac896231a5fda9   <-- DIFFERENT
+  new vs new.rep  logits  : max|d|=0 over 248328
+  new vs new.rep  logprobs: max|d|=0 over 10890
+  new vs new.rep  text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  new vs new.rep  mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+== sposi-long
+  new vs base     logits  : max|d|=0 over 248330
+  new vs base     logprobs: max|d|=0 over 11001
+  new vs base     text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  new vs base     mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  new vs prev     logits  : max|d|=0.95255184 over 248330   <-- DIFFERENT
+  new vs prev     logprobs: length 11001 vs 11004   <-- DIFFERENT
+  new vs prev     text    : 093f5e014f1f73e9 vs 56dde03cabf7c45e   <-- DIFFERENT
+  new vs prev     mtptext : 093f5e014f1f73e9 vs 56dde03cabf7c45e   <-- DIFFERENT
+  new vs new.rep  logits  : max|d|=0 over 248330
+  new vs new.rep  logprobs: max|d|=0 over 11001
+  new vs new.rep  text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  new vs new.rep  mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+DETERMINISM (new vs new.rep): IDENTICAL

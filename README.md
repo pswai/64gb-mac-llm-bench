@@ -73,6 +73,11 @@ M2–M4 by device name. With no env var or patch, on this M4 Max vs base `0aaea5
 - **Head vs base:** outputs differ, from the PR's other changes, not the tuning; unexplained.
 - Details: [results/2026-10-02-pr1056-0231312/](results/2026-10-02-pr1056-0231312/).
 
+**At `37f66ba` (2026-10-03):** the author restored main's arithmetic for resident prefill. Output is
+now **identical to base `0aaea5a`** (logits, logprobs, text), and the speedup is unchanged: gen +6.2
+to +8.7%, prefill +1.0 to +2.0%, 32/32 separate.
+- Details: [results/2026-10-03-pr1056-37f66ba/](results/2026-10-03-pr1056-37f66ba/).
+
 ## What these numbers are, and are not
 
 - **Method:** ds4's own `ds4-bench` with the documented sweep:

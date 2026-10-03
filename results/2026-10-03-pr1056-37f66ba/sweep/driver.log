@@ -1,0 +1,25 @@
+2026-10-03 23:36:58 free disk 199 GiB
+2026-10-03 23:36:58 WARNING: no QUIET_HOOK; stop other GPU and memory-heavy work yourself
+2026-10-03 23:36:58 hard stop at 2026-10-04 03:00:58
+2026-10-03 23:37:19 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 596939,380636,2983502,138539,40763,175548,426555,18922
+2026-10-03 23:37:19 sha256 check skipped
+2026-10-03 23:37:19 start base-chunk2048-r1: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 00:03:32 end base-chunk2048-r1: rc=0 wall=1572s rows=32 swapin_pages=528
+2026-10-04 00:03:32 cooldown 120s
+2026-10-04 00:05:32 start head-chunk2048-r1: [ds4-pr1056-37f66ba] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 00:31:18 end head-chunk2048-r1: rc=0 wall=1546s rows=32 swapin_pages=16
+2026-10-04 00:31:18 cooldown 120s
+2026-10-04 00:33:18 start head-chunk2048-r2: [ds4-pr1056-37f66ba] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 00:59:03 end head-chunk2048-r2: rc=0 wall=1545s rows=32 swapin_pages=36
+2026-10-04 00:59:03 cooldown 120s
+2026-10-04 01:01:03 start base-chunk2048-r2: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 01:27:16 end base-chunk2048-r2: rc=0 wall=1572s rows=32 swapin_pages=8
+2026-10-04 01:27:16 cooldown 120s
+2026-10-04 01:29:16 start base-chunk2048-r3: [ds4-bench-0aaea5a] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 01:55:29 end base-chunk2048-r3: rc=0 wall=1572s rows=32 swapin_pages=484
+2026-10-04 01:55:29 cooldown 120s
+2026-10-04 01:57:29 start head-chunk2048-r3: [ds4-pr1056-37f66ba] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-04 02:23:17 end head-chunk2048-r3: rc=0 wall=1548s rows=32 swapin_pages=1256
+2026-10-04 02:23:17 cooldown 120s
+2026-10-04 02:25:17 all runs done
+2026-10-04 02:25:17 disk after: 200Gi free

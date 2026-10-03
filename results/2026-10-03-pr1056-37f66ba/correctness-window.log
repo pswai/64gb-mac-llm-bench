@@ -1,0 +1,27 @@
+2026-10-03 18:40:20 arm ds4-pr1056-37f66ba @ 37f66ba: ds4 927f6f7f2d996734
+2026-10-03 18:40:20 arm ds4-bench-0aaea5a @ 0aaea5a: ds4 609637ebd913ef88
+2026-10-03 18:40:20 arm ds4-pr1056-0231312 @ 0231312: ds4 d28254fd713621b4
+2026-10-03 18:40:20 top RSS before: mediaanalysisd 0.7GB; Claude 0.6GB; claude 0.5GB; Codex 0.5GB; 
+2026-10-03 18:41:18 daily server idle for 30 s
+2026-10-03 18:41:19 hook: paused 6 of 6 jobs, 0 still active
+2026-10-03 18:41:19 hook: server stop requested
+2026-10-03 18:41:21 hook: server pid 62895 exited
+2026-10-03 18:41:32 correctness start
+2026-10-03 18:46:29 correctness exit 0; swap-ins 0 MiB
+2026-10-03 18:46:29   == rome-short
+2026-10-03 18:46:29     new vs prev     logits  : max|d|=0.29479742 over 248328   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     logprobs: length 10731 vs 10739   <-- DIFFERENT
+2026-10-03 18:46:29   == roma575
+2026-10-03 18:46:29     new vs prev     logits  : max|d|=0.61770618 over 248328   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     logprobs: length 10890 vs 10901   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     text    : f2af8811f8198e7f vs 32ac896231a5fda9   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     mtptext : f2af8811f8198e7f vs 32ac896231a5fda9   <-- DIFFERENT
+2026-10-03 18:46:29   == sposi-long
+2026-10-03 18:46:29     new vs prev     logits  : max|d|=0.95255184 over 248330   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     logprobs: length 11001 vs 11004   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     text    : 093f5e014f1f73e9 vs 56dde03cabf7c45e   <-- DIFFERENT
+2026-10-03 18:46:29     new vs prev     mtptext : 093f5e014f1f73e9 vs 56dde03cabf7c45e   <-- DIFFERENT
+2026-10-03 18:46:29   DETERMINISM (new vs new.rep): IDENTICAL
+2026-10-03 18:46:33 hook: server restored: pid 90083 on :8001
+2026-10-03 18:46:34 hook: jobs active now: 6
+2026-10-03 18:46:35 FINAL: daily pid '90083' /v1/models HTTP 200; kv-interval flag: --kv-cache-continued-interval-tokens 40000; crons active 6
