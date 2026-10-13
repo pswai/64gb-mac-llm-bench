@@ -78,6 +78,14 @@ now **identical to base `0aaea5a`** (logits, logprobs, text), and the speedup is
 to +8.7%, prefill +1.0 to +2.0%, 32/32 separate.
 - Details: [results/2026-10-03-pr1056-37f66ba/](results/2026-10-03-pr1056-37f66ba/).
 
+**At `8d543ec` (2026-10-13), the PR head level with `main` `fc80bd6`:** output is **identical to
+`main`** (logits, logprobs, text), and it's faster: gen +7.9 to +8.7% (median +8.1%), prefill +1.1 to
++1.6% (median +1.4%), 32/32 separate.
+- With MTP on in the server, `DS4_QWEN4_MTP_PREFILL=auto` vs the default `on`: same text, +8.7..+8.9%
+  prefill, −4.7% total wall over 3 requests. But `on` is 2.4% faster on the request where MTP speeds
+  decode most.
+- Details: [results/2026-10-13-pr1056-8d543ec/](results/2026-10-13-pr1056-8d543ec/).
+
 ## What these numbers are, and are not
 
 - **Method:** ds4's own `ds4-bench` with the documented sweep:

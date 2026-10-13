@@ -1,0 +1,97 @@
+2026-10-13 19:58:33 window start; hard stop 2026-10-14 00:30:33
+2026-10-13 19:58:33 free disk 146 GiB
+2026-10-13 19:58:33 PR head still 8d543ec
+2026-10-13 19:58:33 arm ds4-bench-fc80bd6 @ fc80bd6: ds4 7de4a40519c1b1f9 ds4-bench 00f9e37c5744f88c ds4-server 547297ba3ce85cfe
+2026-10-13 19:58:34 arm ds4-pr1056-8d543ec @ 8d543ec: ds4 8e4edecb8ee912f0 ds4-bench 8d3270e4f36a0c60 ds4-server 8bd2f23ebf5292a9
+2026-10-13 19:58:34 limit at start: 57344 MiB; recommendedMaxWorkingSetSize=60129542144 bytes (56.00 GiB, 57344 MiB)
+2026-10-13 19:58:34 top RSS before: Claude 0.8GB; claude 0.5GB; claude 0.5GB; claude 0.4GB; claude 0.4GB; 
+2026-10-13 19:58:34 quiet check ok: load1 2.00
+2026-10-13 20:00:55 daily server idle for 30 s
+2026-10-13 20:00:56 hook: paused 6 of 6 jobs, 0 still active
+2026-10-13 20:00:56 hook: server stop requested
+2026-10-13 20:01:02 hook: server pid 89187 exited
+2026-10-13 20:01:02 SERVER STOPPED; waiting for the owner's go (GO file), max 900 s
+2026-10-13 20:01:29 go received
+2026-10-13 20:01:40 correctness start
+2026-10-13 20:05:55 correctness exit 0; swap-ins since quiet 0 MiB
+2026-10-13 20:05:55   == rome-short
+2026-10-13 20:05:55   == roma575
+2026-10-13 20:05:55   == sposi-long
+2026-10-13 20:05:55   DETERMINISM (head vs head.rep): IDENTICAL
+2026-10-13 20:05:55 server A/B start, limit 57344
+2026-10-13 20:05:56 block mtp-off: order A B B A
+2026-10-13 20:06:53   mtp-off-01-A short: prompt 3683 gen 800 prefill 515.11 decode 39.91 wall 27.263s
+2026-10-13 20:07:20   mtp-off-01-A short: prompt 3562 gen 800 prefill 517.32 decode 39.86 wall 27.052s
+2026-10-13 20:08:38   mtp-off-01-A deep: prompt 35187 gen 400 prefill 523.96 decode 39.64 wall 77.351s
+2026-10-13 20:08:39 mtp-off-01-A: valid=True swapin_pages=48 ready=2.3s
+2026-10-13 20:10:34   mtp-off-02-B short: prompt 3683 gen 800 prefill 497.04 decode 43.02 wall 26.07s
+2026-10-13 20:11:00   mtp-off-02-B short: prompt 3562 gen 800 prefill 525.4 decode 42.95 wall 25.516s
+2026-10-13 20:12:16   mtp-off-02-B deep: prompt 35187 gen 400 prefill 533.86 decode 42.77 wall 75.382s
+2026-10-13 20:12:17 mtp-off-02-B: valid=True swapin_pages=86 ready=2.2s
+2026-10-13 20:14:12   mtp-off-03-B short: prompt 3683 gen 800 prefill 513.96 decode 43.07 wall 25.811s
+2026-10-13 20:14:38   mtp-off-03-B short: prompt 3562 gen 800 prefill 512.91 decode 43.03 wall 25.644s
+2026-10-13 20:15:54   mtp-off-03-B deep: prompt 35187 gen 400 prefill 531.71 decode 42.79 wall 75.643s
+2026-10-13 20:15:56 mtp-off-03-B: valid=True swapin_pages=4 ready=2.3s
+2026-10-13 20:17:53   mtp-off-04-A short: prompt 3683 gen 800 prefill 509.2 decode 39.78 wall 27.409s
+2026-10-13 20:18:21   mtp-off-04-A short: prompt 3562 gen 800 prefill 513.26 decode 39.84 wall 27.118s
+2026-10-13 20:19:39   mtp-off-04-A deep: prompt 35187 gen 400 prefill 525.31 decode 39.64 wall 77.198s
+2026-10-13 20:19:40 mtp-off-04-A: valid=True swapin_pages=519 ready=2.3s
+2026-10-13 20:20:40 block mtp-on: order A B D D B A
+2026-10-13 20:21:30   mtp-on-01-A short: prompt 3683 gen 800 prefill 504.65 decode 46.95 wall 24.41s
+2026-10-13 20:21:53   mtp-on-01-A short: prompt 3562 gen 800 prefill 511.08 decode 54.66 wall 21.71s
+2026-10-13 20:23:09   mtp-on-01-A deep: prompt 35187 gen 400 prefill 524.37 decode 47.15 wall 75.711s
+2026-10-13 20:23:10 mtp-on-01-A: valid=True swapin_pages=16 ready=2.3s
+2026-10-13 20:24:59   mtp-on-02-B short: prompt 3683 gen 800 prefill 477.96 decode 49.94 wall 23.791s
+2026-10-13 20:25:20   mtp-on-02-B short: prompt 3562 gen 800 prefill 478.39 decode 62.62 wall 20.331s
+2026-10-13 20:26:41   mtp-on-02-B deep: prompt 35187 gen 400 prefill 489.39 decode 50.66 wall 79.915s
+2026-10-13 20:26:42 mtp-on-02-B: valid=True swapin_pages=4 ready=2.3s
+2026-10-13 20:28:30   mtp-on-03-D short: prompt 3683 gen 800 prefill 521.54 decode 49.79 wall 23.196s
+2026-10-13 20:28:51   mtp-on-03-D short: prompt 3562 gen 800 prefill 520.08 decode 57.78 wall 20.818s
+2026-10-13 20:30:06   mtp-on-03-D deep: prompt 35187 gen 400 prefill 531.93 decode 49.7 wall 74.32s
+2026-10-13 20:30:07 mtp-on-03-D: valid=True swapin_pages=16 ready=2.3s
+2026-10-13 20:31:54   mtp-on-04-D short: prompt 3683 gen 800 prefill 511.51 decode 49.81 wall 23.327s
+2026-10-13 20:32:15   mtp-on-04-D short: prompt 3562 gen 800 prefill 521.33 decode 57.78 wall 20.792s
+2026-10-13 20:33:30   mtp-on-04-D deep: prompt 35187 gen 400 prefill 532.62 decode 49.66 wall 74.244s
+2026-10-13 20:33:31 mtp-on-04-D: valid=True swapin_pages=0 ready=1.1s
+2026-10-13 20:35:20   mtp-on-05-B short: prompt 3683 gen 800 prefill 470.65 decode 49.97 wall 23.904s
+2026-10-13 20:35:41   mtp-on-05-B short: prompt 3562 gen 800 prefill 479.83 decode 62.63 wall 20.313s
+2026-10-13 20:37:02   mtp-on-05-B deep: prompt 35187 gen 400 prefill 488.36 decode 50.58 wall 80.084s
+2026-10-13 20:37:03 mtp-on-05-B: valid=True swapin_pages=4 ready=2.3s
+2026-10-13 20:38:53   mtp-on-06-A short: prompt 3683 gen 800 prefill 506.31 decode 46.95 wall 24.383s
+2026-10-13 20:39:16   mtp-on-06-A short: prompt 3562 gen 800 prefill 506.78 decode 54.67 wall 21.765s
+2026-10-13 20:40:32   mtp-on-06-A deep: prompt 35187 gen 400 prefill 524.61 decode 47.11 wall 75.689s
+2026-10-13 20:40:33 mtp-on-06-A: valid=True swapin_pages=4 ready=2.3s
+2026-10-13 20:41:33 server A/B done
+2026-10-13 20:41:33 server A/B exit 0
+2026-10-13 20:41:33 sweep start: REPS=3 MAX_EXTRA=1 (224 min left), raised limit 57344 (as 10-03)
+2026-10-13 20:41:33 free disk 212 GiB
+2026-10-13 20:41:33 WARNING: no QUIET_HOOK; stop other GPU and memory-heavy work yourself
+2026-10-13 20:41:34 hard stop at 2026-10-14 00:30:34
+2026-10-13 20:41:54 quiet: vm free,active,inactive,wired,compressor,swapins,swapouts,pageouts = 559910,462171,2890558,163833,64832,10743437,24865592,477508
+2026-10-13 20:41:54 sha256 check skipped
+2026-10-13 20:41:54 start base-chunk2048-r1: [ds4-bench-fc80bd6] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 21:08:09 end base-chunk2048-r1: rc=0 wall=1575s rows=32 swapin_pages=92
+2026-10-13 21:08:09 cooldown 120s
+2026-10-13 21:10:09 start head-chunk2048-r1: [ds4-pr1056-8d543ec] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 21:35:55 end head-chunk2048-r1: rc=0 wall=1546s rows=32 swapin_pages=144
+2026-10-13 21:35:55 cooldown 120s
+2026-10-13 21:37:55 start head-chunk2048-r2: [ds4-pr1056-8d543ec] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 22:03:41 end head-chunk2048-r2: rc=0 wall=1546s rows=32 swapin_pages=72
+2026-10-13 22:03:41 cooldown 120s
+2026-10-13 22:05:42 start base-chunk2048-r2: [ds4-bench-fc80bd6] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 22:31:56 end base-chunk2048-r2: rc=0 wall=1573s rows=32 swapin_pages=206
+2026-10-13 22:31:56 cooldown 120s
+2026-10-13 22:33:56 start base-chunk2048-r3: [ds4-bench-fc80bd6] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 23:00:11 end base-chunk2048-r3: rc=0 wall=1574s rows=32 swapin_pages=235
+2026-10-13 23:00:11 cooldown 120s
+2026-10-13 23:02:11 start head-chunk2048-r3: [ds4-pr1056-8d543ec] DS4_QWEN4_PREFILL_CHUNK=2048 ds4-bench -m Qwen3.8-Flash-Next-Q2.gguf --prefill-chunk 2048
+2026-10-13 23:27:56 end head-chunk2048-r3: rc=0 wall=1545s rows=32 swapin_pages=146
+2026-10-13 23:27:56 cooldown 120s
+2026-10-13 23:29:56 all runs done
+~/Dev/64gb-mac-llm-bench/scripts/run-bench.sh: line 157: 90531 Terminated: 15          ( sleep $(( stop_epoch - now )); kill -TERM $$ )
+2026-10-13 23:29:57 disk after: 212Gi free
+2026-10-13 23:29:57 sweep exit 0
+2026-10-13 23:29:57 all done
+2026-10-13 23:30:04 hook: server restored: pid 35963 on :8001
+2026-10-13 23:30:05 hook: jobs active now: 6
+2026-10-13 23:30:06 FINAL: limit 57344; daily launchd pid '35963' listener '35963'; /v1/models HTTP 200; kv-interval flag: --kv-cache-continued-interval-tokens 40000; active crons 6; 212Gi free

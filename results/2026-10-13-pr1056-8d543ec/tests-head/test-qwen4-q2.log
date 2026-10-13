@@ -1,0 +1,212 @@
+cc -O3 -ffast-math -g -mcpu=native -Wall -Wextra -std=c99 -fno-fast-math -I. -c -o tests/test_qwen4_moe_mm_specialize.o tests/test_qwen4_moe_mm_specialize.c
+cc -O3 -ffast-math -g -mcpu=native -Wall -Wextra -std=c99 -o tests/test_qwen4_moe_mm_specialize tests/test_qwen4_moe_mm_specialize.o ds4.o ds4_image.o ds4_distributed.o ds4_tp.o ds4_ssd.o ds4_metal.o ds4_layer_pack.o ds4_engram.o -lm -pthread -framework Foundation -framework Metal
+DS4_TEST_QWEN4_MV_EXACT=1 ./tests/test_qwen4_kernels
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.069 ms, residency requested in 31.138 ms, warmup 4.064 ms (mapped 1536.00 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+MXFP4 down: exact NR1/2/4, odd rows, block tails and shared slots; guards intact
+  moe q2_K E=2560 F=640 slots=6 T=1: reduce+combine ok  max|d|=1.17e-05 (scale 4.36e+01)
+  moe iq2_xxs E=2560 F=640 slots=6 T=1: mid (+shared) ok  max|d|=2.92e-05 (scale 1.81e+02)
+  moe q2_K E=2560 F=640 slots=6 T=1: down (+shared) ok  max|d|=3.37e-06 (scale 2.06e+01)
+  moe q2_K E=2560 F=640 slots=6 T=1: out       ok  max|d|=6.48e-06 (scale 2.81e+01)
+  moe mm iq2_xxs E=2560 F=640 slots=6 T=1: mid ok  max|d|=6.02e-02 (scale 1.81e+02)
+  moe mm iq2_xxs E=2560 F=640 slots=6 T=1: down ok  max|d|=8.91e-03 (scale 2.06e+01)
+  moe q2_K E=2560 F=640 slots=6 T=2: reduce+combine ok  max|d|=6.56e-06 (scale 3.53e+01)
+  moe iq2_xxs E=2560 F=640 slots=6 T=2: mid (+shared) ok  max|d|=2.61e-05 (scale 1.62e+02)
+  moe q2_K E=2560 F=640 slots=6 T=2: down (+shared) ok  max|d|=3.48e-06 (scale 2.01e+01)
+  moe q2_K E=2560 F=640 slots=6 T=2: out       ok  max|d|=3.99e-06 (scale 2.28e+01)
+  moe mm iq2_xxs E=2560 F=640 slots=6 T=2: mid ok  max|d|=5.95e-02 (scale 1.62e+02)
+  moe mm iq2_xxs E=2560 F=640 slots=6 T=2: down ok  max|d|=1.02e-02 (scale 2.01e+01)
+  moe q2_K E=256 F=256 slots=6 T=9: reduce+combine ok  max|d|=5.26e-07 (scale 2.91e+00)
+  moe iq2_xxs E=256 F=256 slots=6 T=9: mid (+shared) ok  max|d|=3.57e-06 (scale 2.07e+01)
+  moe q2_K E=256 F=256 slots=6 T=9: down (+shared) ok  max|d|=2.21e-07 (scale 1.18e+00)
+  moe q2_K E=256 F=256 slots=6 T=9: out        ok  max|d|=2.68e-07 (scale 1.62e+00)
+  moe mm iq2_xxs E=256 F=256 slots=6 T=9: mid  ok  max|d|=7.50e-03 (scale 2.07e+01)
+  moe mm iq2_xxs E=256 F=256 slots=6 T=9: down ok  max|d|=5.97e-04 (scale 1.18e+00)
+  moe q2_K E=256 F=672 slots=6 T=3: reduce+combine ok  max|d|=4.60e-07 (scale 3.07e+00)
+  moe iq2_xxs E=256 F=672 slots=6 T=3: mid (+shared) ok  max|d|=2.86e-06 (scale 2.68e+01)
+  moe q2_K E=256 F=672 slots=6 T=3: down (+shared) ok  max|d|=2.99e-07 (scale 1.51e+00)
+  moe q2_K E=256 F=672 slots=6 T=3: out        ok  max|d|=4.06e-07 (scale 2.28e+00)
+  moe mxfp4 E=2560 F=640 slots=6 T=1: reduce+combine ok  max|d|=1.58e-07 (scale 1.48e+00)
+  moe q4_K E=2560 F=640 slots=6 T=1: mid (+shared) ok  max|d|=3.70e-07 (scale 3.80e+00)
+  moe mxfp4 E=2560 F=640 slots=6 T=1: down (+shared) ok  max|d|=2.06e-07 (scale 1.09e+00)
+  moe mxfp4 E=2560 F=640 slots=6 T=1: out      ok  max|d|=1.13e-07 (scale 4.66e-01)
+  moe mm q4_K E=2560 F=640 slots=6 T=1: mid    ok  max|d|=2.22e-04 (scale 4.37e-01)
+  moe mm q4_K E=2560 F=640 slots=6 T=1: down   ok  max|d|=5.53e-05 (scale 8.39e-02)
+  moe mxfp4 E=2560 F=640 slots=6 T=2: reduce+combine ok  max|d|=1.82e-07 (scale 1.47e+00)
+  moe q4_K E=2560 F=640 slots=6 T=2: mid (+shared) ok  max|d|=6.59e-07 (scale 3.06e+00)
+  moe mxfp4 E=2560 F=640 slots=6 T=2: down (+shared) ok  max|d|=1.92e-07 (scale 9.96e-01)
+  moe mxfp4 E=2560 F=640 slots=6 T=2: out      ok  max|d|=1.55e-07 (scale 6.33e-01)
+  moe mm q4_K E=2560 F=640 slots=6 T=2: mid    ok  max|d|=1.87e-04 (scale 4.64e-01)
+  moe mm q4_K E=2560 F=640 slots=6 T=2: down   ok  max|d|=5.23e-05 (scale 1.74e-01)
+  moe mxfp4 E=256 F=256 slots=6 T=9: reduce+combine ok  max|d|=6.72e-08 (scale 1.03e+00)
+  moe q4_K E=256 F=256 slots=6 T=9: mid (+shared) ok  max|d|=3.94e-08 (scale 2.80e-01)
+  moe mxfp4 E=256 F=256 slots=6 T=9: down (+shared) ok  max|d|=1.15e-08 (scale 6.51e-02)
+  moe mxfp4 E=256 F=256 slots=6 T=9: out       ok  max|d|=9.45e-09 (scale 5.31e-02)
+  moe mm q4_K E=256 F=256 slots=6 T=9: mid     ok  max|d|=3.30e-05 (scale 7.73e-02)
+  moe mm q4_K E=256 F=256 slots=6 T=9: down    ok  max|d|=6.12e-06 (scale 1.07e-02)
+  moe mxfp4 E=256 F=672 slots=6 T=3: reduce+combine ok  max|d|=5.46e-08 (scale 1.04e+00)
+  moe q4_K E=256 F=672 slots=6 T=3: mid (+shared) ok  max|d|=6.12e-08 (scale 3.12e-01)
+  moe mxfp4 E=256 F=672 slots=6 T=3: down (+shared) ok  max|d|=2.27e-08 (scale 9.76e-02)
+  moe mxfp4 E=256 F=672 slots=6 T=3: out       ok  max|d|=1.39e-08 (scale 7.20e-02)
+all Qwen MoE decode specialization tests passed
+DS4_TEST_QWEN4_M1_REUSE_ONLY=q2 ./tests/test_qwen4_kernels
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.023 ms, residency requested in 2.328 ms, warmup 3.232 ms (mapped 96.00 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+M1 reuse screen: explicit generic vs automatic (device-dependent) kernels
+  Q2 down reuse E=2560 F=640 T=1 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2560 F=640 T=1 shared=1: generic vs unset default exact, guards intact
+  Q2 down reuse E=2560 F=640 T=2 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2560 F=640 T=2 shared=1: generic vs unset default exact, guards intact
+  Q2 down reuse E=2560 F=640 T=3 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2560 F=640 T=3 shared=1: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=1 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=1 shared=1: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=2 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=2 shared=1: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=3 shared=0: generic vs unset default exact, guards intact
+  Q2 down reuse E=2561 F=640 T=3 shared=1: generic vs unset default exact, guards intact
+M1 reuse screen passed; arena used 18.09 MiB
+./tests/test_qwen4_moe_mm_specialize
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.017 ms, residency requested in 0.145 ms, warmup 5.129 ms (mapped 5.91 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+PASS Qwen MoE specialization type=12 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=8 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=9 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=16 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=17 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=24 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=31 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=32 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=33 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=48 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=63 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=64 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=65 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=95 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=96 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=97 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=127 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=128 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=129 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=257 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=8191 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=8192 mid/down exact, padding intact
+PASS Qwen MoE specialization type=12 T=8193 mid/down exact, padding intact
+PASS Qwen MoE specialization type=16 T=8193 mid/down exact, padding intact
+PASS Qwen MoE specialization type=10 T=8193 mid/down exact, padding intact
+PASS Qwen MoE specialization type=8 T=8193 mid/down exact, padding intact
+PASS Qwen MoE specialization type=39 T=8193 mid/down exact, padding intact
+PASS Qwen MoE specialization type=2 T=8193 mid/down exact, padding intact

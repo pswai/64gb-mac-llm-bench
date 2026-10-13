@@ -1,0 +1,144 @@
+ds4: Qwen BF16 n-grams: 95.37 GiB, disk reads only
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 1.290 ms, residency requested in 453.271 ms, warmup 4.431 ms (mapped 42720.44 MiB from offset 10.51 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: Metal model views created in 0.047 ms, residency requested in 749.435 ms, warmup 1.120 ms (mapped 588.12 MiB from offset 0.02 MiB)
+ds4: Metal mapped mmaped model as 3 overlapping shared buffers
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 5.21 GiB (raw 4.06 + compressed 1.14) + buffers 1.51 GiB + resident model 41.72 GiB = 48.43 GiB planned
+ds4: memory detail: ctx=163840 prefill_cap=1024 raw_kv_rows=163840 compressed_kv_rows=40961 backend=metal
+1013 20:20:41 ds4-server: context buffers 6874.17 MiB (ctx=163840, backend=metal, prefill_chunk=1024, raw_kv_rows=163840, compressed_kv_rows=40961)
+1013 20:20:41 ds4-server: KV disk cache ~/.ds4-bench-tmp-kv/mtp-on-01-A (budget=16384 MiB, cross-quant=accept, min=512, cold_max=30000, continued=10000, trim=32, align=2048, hit_half_life=21600s)
+1013 20:20:41 ds4-server: listening on http://127.0.0.1:8099
+1013 20:20:42 ds4-server: chat ctx=0..3627:3627 prompt start
+1013 20:20:44 ds4-server: chat ctx=0..3627:3627 prefill chunk 1024/3627 (28.2%) chunk=0.00 t/s avg=552.28 t/s 1.854s
+1013 20:20:46 ds4-server: chat ctx=0..3627:3627 prefill chunk 2048/3627 (56.5%) chunk=557.74 t/s avg=555.00 t/s 3.690s
+1013 20:20:46 ds4-server: kv cache stored tokens=2048 trimmed=1579 reason=cold key=token-text size=175.06 MiB save=21.9 ms
+1013 20:20:48 ds4-server: chat ctx=0..3627:3627 prefill chunk 3072/3627 (84.7%) chunk=483.12 t/s avg=528.77 t/s 5.810s
+1013 20:20:49 ds4-server: chat ctx=0..3627:3627 prefill chunk 3627/3627 (100.0%) chunk=470.03 t/s avg=518.85 t/s 6.990s
+1013 20:20:49 ds4-server: chat ctx=0..3627:3627 prompt done 6.990s
+1013 20:20:50 ds4-server: chat ctx=3627..3677:50 gen=50 decoding chunk=48.21 t/s avg=48.21 t/s 1.037s
+1013 20:20:51 ds4-server: chat ctx=3677..3727:50 gen=100 decoding chunk=47.03 t/s avg=47.61 t/s 2.100s
+1013 20:20:52 ds4-server: chat ctx=3727..3777:50 gen=150 decoding chunk=46.94 t/s avg=47.38 t/s 3.166s
+1013 20:20:53 ds4-server: chat ctx=3777..3827:50 gen=200 decoding chunk=46.92 t/s avg=47.27 t/s 4.231s
+1013 20:20:54 ds4-server: chat ctx=3827..3877:50 gen=250 decoding chunk=44.20 t/s avg=46.62 t/s 5.363s
+1013 20:20:56 ds4-server: chat ctx=3877..3927:50 gen=300 decoding chunk=46.93 t/s avg=46.67 t/s 6.428s
+1013 20:20:57 ds4-server: chat ctx=3927..3977:50 gen=350 decoding chunk=48.54 t/s avg=46.93 t/s 7.458s
+1013 20:20:58 ds4-server: chat ctx=3977..4027:50 gen=400 decoding chunk=48.50 t/s avg=47.12 t/s 8.489s
+1013 20:20:59 ds4-server: chat ctx=4027..4077:50 gen=450 decoding chunk=48.46 t/s avg=47.26 t/s 9.521s
+1013 20:21:00 ds4-server: chat ctx=4077..4127:50 gen=500 decoding chunk=51.77 t/s avg=47.68 t/s 10.487s
+1013 20:21:01 ds4-server: chat ctx=4127..4177:50 gen=550 decoding chunk=48.40 t/s avg=47.74 t/s 11.520s
+1013 20:21:02 ds4-server: chat ctx=4177..4227:50 gen=600 decoding chunk=51.22 t/s avg=48.02 t/s 12.496s
+1013 20:21:03 ds4-server: chat ctx=4227..4277:50 gen=650 decoding chunk=53.61 t/s avg=48.40 t/s 13.429s
+1013 20:21:04 ds4-server: chat ctx=4277..4327:50 gen=700 decoding chunk=50.17 t/s avg=48.53 t/s 14.425s
+1013 20:21:05 ds4-server: chat ctx=4327..4377:50 gen=750 decoding chunk=45.66 t/s avg=48.32 t/s 15.520s
+1013 20:21:05 ds4-server: chat ctx=4377..4406:29 gen=779 decoding chunk=54.15 t/s avg=48.52 t/s 16.056s
+1013 20:21:05 ds4-server: chat ctx=0..3627:3627 gen=779 finish=stop 23.046s
+1013 20:21:05 ds4-server: live kv cache miss live=4406 prompt=3683 common=5 vision=match reason=token-mismatch
+1013 20:21:05 ds4-server: kv cache stored tokens=4406 trimmed=0 reason=evict key=token-text size=256.95 MiB save=32.1 ms
+1013 20:21:05 ds4-server: chat ctx=0..3683:3683 prompt start
+1013 20:21:07 ds4-server: chat ctx=0..3683:3683 prefill chunk 1024/3683 (27.8%) chunk=0.00 t/s avg=504.40 t/s 2.030s
+1013 20:21:09 ds4-server: chat ctx=0..3683:3683 prefill chunk 2048/3683 (55.6%) chunk=548.75 t/s avg=525.64 t/s 3.896s
+1013 20:21:09 ds4-server: kv cache stored tokens=2048 trimmed=1635 reason=cold key=token-text size=175.06 MiB save=22.7 ms
+1013 20:21:11 ds4-server: chat ctx=0..3683:3683 prefill chunk 3072/3683 (83.4%) chunk=478.90 t/s avg=509.08 t/s 6.034s
+1013 20:21:13 ds4-server: chat ctx=0..3683:3683 prefill chunk 3683/3683 (100.0%) chunk=483.49 t/s avg=504.65 t/s 7.298s
+1013 20:21:13 ds4-server: chat ctx=0..3683:3683 prompt done 7.298s
+1013 20:21:14 ds4-server: chat ctx=3683..3733:50 gen=50 decoding chunk=44.20 t/s avg=44.20 t/s 1.131s
+1013 20:21:15 ds4-server: chat ctx=3733..3783:50 gen=100 decoding chunk=42.87 t/s avg=43.52 t/s 2.298s
+1013 20:21:16 ds4-server: chat ctx=3783..3833:50 gen=150 decoding chunk=45.60 t/s avg=44.19 t/s 3.394s
+1013 20:21:17 ds4-server: chat ctx=3833..3883:50 gen=200 decoding chunk=49.99 t/s avg=45.51 t/s 4.394s
+1013 20:21:18 ds4-server: chat ctx=3883..3933:50 gen=250 decoding chunk=48.39 t/s avg=46.06 t/s 5.428s
+1013 20:21:19 ds4-server: chat ctx=3933..3983:50 gen=300 decoding chunk=42.95 t/s avg=45.51 t/s 6.592s
+1013 20:21:20 ds4-server: chat ctx=3983..4033:50 gen=350 decoding chunk=45.49 t/s avg=45.51 t/s 7.691s
+1013 20:21:21 ds4-server: chat ctx=4033..4083:50 gen=400 decoding chunk=44.21 t/s avg=45.34 t/s 8.822s
+1013 20:21:22 ds4-server: chat ctx=4083..4133:50 gen=450 decoding chunk=49.91 t/s avg=45.81 t/s 9.824s
+1013 20:21:23 ds4-server: chat ctx=4133..4183:50 gen=500 decoding chunk=46.91 t/s avg=45.92 t/s 10.890s
+1013 20:21:24 ds4-server: chat ctx=4183..4233:50 gen=550 decoding chunk=51.94 t/s avg=46.40 t/s 11.852s
+1013 20:21:25 ds4-server: chat ctx=4233..4283:50 gen=600 decoding chunk=45.48 t/s avg=46.33 t/s 12.952s
+1013 20:21:26 ds4-server: chat ctx=4283..4333:50 gen=650 decoding chunk=50.24 t/s avg=46.61 t/s 13.947s
+1013 20:21:28 ds4-server: chat ctx=4333..4383:50 gen=700 decoding chunk=45.51 t/s avg=46.53 t/s 15.046s
+1013 20:21:28 ds4-server: chat ctx=4383..4433:50 gen=750 decoding chunk=53.69 t/s avg=46.94 t/s 15.977s
+1013 20:21:30 ds4-server: chat ctx=4433..4483:50 gen=800 decoding chunk=47.07 t/s avg=46.95 t/s 17.039s
+1013 20:21:30 ds4-server: chat ctx=0..3683:3683 gen=800 finish=length 24.337s
+1013 20:21:30 ds4-server: live kv cache miss live=4483 prompt=3562 common=6 vision=match reason=token-mismatch
+1013 20:21:30 ds4-server: kv cache stored tokens=4483 trimmed=0 reason=evict key=token-text size=259.46 MiB save=34.7 ms
+1013 20:21:30 ds4-server: chat ctx=0..3562:3562 prompt start
+1013 20:21:32 ds4-server: chat ctx=0..3562:3562 prefill chunk 1024/3562 (28.7%) chunk=0.00 t/s avg=524.01 t/s 1.954s
+1013 20:21:34 ds4-server: chat ctx=0..3562:3562 prefill chunk 2048/3562 (57.5%) chunk=561.15 t/s avg=541.94 t/s 3.779s
+1013 20:21:34 ds4-server: kv cache stored tokens=2048 trimmed=1514 reason=cold key=token-text size=175.06 MiB save=22.5 ms
+1013 20:21:36 ds4-server: chat ctx=0..3562:3562 prefill chunk 3072/3562 (86.2%) chunk=483.03 t/s avg=520.77 t/s 5.899s
+1013 20:21:37 ds4-server: chat ctx=0..3562:3562 prefill chunk 3562/3562 (100.0%) chunk=457.70 t/s avg=511.08 t/s 6.970s
+1013 20:21:37 ds4-server: chat ctx=0..3562:3562 prompt done 6.970s
+1013 20:21:38 ds4-server: chat ctx=3562..3612:50 gen=50 decoding chunk=45.54 t/s avg=45.54 t/s 1.098s
+1013 20:21:39 ds4-server: chat ctx=3612..3662:50 gen=100 decoding chunk=53.47 t/s avg=49.19 t/s 2.033s
+1013 20:21:40 ds4-server: chat ctx=3662..3712:50 gen=150 decoding chunk=51.82 t/s avg=50.04 t/s 2.998s
+1013 20:21:41 ds4-server: chat ctx=3712..3762:50 gen=200 decoding chunk=48.32 t/s avg=49.60 t/s 4.033s
+1013 20:21:42 ds4-server: chat ctx=3762..3812:50 gen=250 decoding chunk=57.46 t/s avg=50.99 t/s 4.903s
+1013 20:21:43 ds4-server: chat ctx=3812..3862:50 gen=300 decoding chunk=55.38 t/s avg=51.67 t/s 5.806s
+1013 20:21:44 ds4-server: chat ctx=3862..3912:50 gen=350 decoding chunk=53.42 t/s avg=51.92 t/s 6.742s
+1013 20:21:45 ds4-server: chat ctx=3912..3962:50 gen=400 decoding chunk=57.36 t/s avg=52.54 t/s 7.613s
+1013 20:21:46 ds4-server: chat ctx=3962..4012:50 gen=450 decoding chunk=55.47 t/s avg=52.85 t/s 8.515s
+1013 20:21:47 ds4-server: chat ctx=4012..4062:50 gen=500 decoding chunk=57.54 t/s avg=53.28 t/s 9.384s
+1013 20:21:48 ds4-server: chat ctx=4062..4112:50 gen=550 decoding chunk=55.41 t/s avg=53.47 t/s 10.286s
+1013 20:21:48 ds4-server: chat ctx=4112..4162:50 gen=600 decoding chunk=55.38 t/s avg=53.63 t/s 11.189s
+1013 20:21:49 ds4-server: chat ctx=4162..4212:50 gen=650 decoding chunk=59.66 t/s avg=54.05 t/s 12.027s
+1013 20:21:50 ds4-server: chat ctx=4212..4262:50 gen=700 decoding chunk=55.41 t/s avg=54.14 t/s 12.929s
+1013 20:21:51 ds4-server: chat ctx=4262..4312:50 gen=750 decoding chunk=59.94 t/s avg=54.49 t/s 13.763s
+1013 20:21:52 ds4-server: chat ctx=4312..4362:50 gen=800 decoding chunk=57.38 t/s avg=54.66 t/s 14.635s
+1013 20:21:52 ds4-server: chat ctx=0..3562:3562 gen=800 finish=length 21.604s
+1013 20:21:53 ds4-server: live kv cache miss live=4362 prompt=35187 common=5 vision=match reason=token-mismatch
+1013 20:21:53 ds4-server: kv cache stored tokens=4362 trimmed=0 reason=evict key=token-text size=255.52 MiB save=33.6 ms
+1013 20:21:53 ds4-server: chat ctx=0..35187:35187 prompt start
+1013 20:21:55 ds4-server: chat ctx=0..35187:35187 prefill chunk 1024/35187 (2.9%) chunk=0.00 t/s avg=529.85 t/s 1.933s
+1013 20:21:56 ds4-server: chat ctx=0..35187:35187 prefill chunk 2048/35187 (5.8%) chunk=563.14 t/s avg=545.99 t/s 3.751s
+1013 20:21:58 ds4-server: chat ctx=0..35187:35187 prefill chunk 3072/35187 (8.7%) chunk=535.11 t/s avg=542.31 t/s 5.665s
+1013 20:22:00 ds4-server: chat ctx=0..35187:35187 prefill chunk 4096/35187 (11.6%) chunk=540.57 t/s avg=541.88 t/s 7.559s
+1013 20:22:02 ds4-server: chat ctx=0..35187:35187 prefill chunk 5120/35187 (14.6%) chunk=537.24 t/s avg=540.94 t/s 9.465s
+1013 20:22:04 ds4-server: chat ctx=0..35187:35187 prefill chunk 6144/35187 (17.5%) chunk=543.70 t/s avg=541.40 t/s 11.348s
+1013 20:22:06 ds4-server: chat ctx=0..35187:35187 prefill chunk 7168/35187 (20.4%) chunk=541.60 t/s avg=541.43 t/s 13.239s
+1013 20:22:08 ds4-server: chat ctx=0..35187:35187 prefill chunk 8192/35187 (23.3%) chunk=536.78 t/s avg=540.84 t/s 15.147s
+1013 20:22:10 ds4-server: chat ctx=0..35187:35187 prefill chunk 9216/35187 (26.2%) chunk=541.71 t/s avg=540.94 t/s 17.037s
+1013 20:22:12 ds4-server: chat ctx=0..35187:35187 prefill chunk 10240/35187 (29.1%) chunk=533.33 t/s avg=540.17 t/s 18.957s
+1013 20:22:12 ds4-server: kv cache stored tokens=10240 trimmed=0 reason=continued key=token-text size=421.25 MiB save=65.6 ms
+1013 20:22:14 ds4-server: chat ctx=0..35187:35187 prefill chunk 11264/35187 (32.0%) chunk=474.88 t/s avg=533.50 t/s 21.113s
+1013 20:22:16 ds4-server: chat ctx=0..35187:35187 prefill chunk 12288/35187 (34.9%) chunk=536.17 t/s avg=533.72 t/s 23.023s
+1013 20:22:18 ds4-server: chat ctx=0..35187:35187 prefill chunk 13312/35187 (37.8%) chunk=526.57 t/s avg=533.16 t/s 24.968s
+1013 20:22:20 ds4-server: chat ctx=0..35187:35187 prefill chunk 14336/35187 (40.7%) chunk=531.47 t/s avg=533.04 t/s 26.895s
+1013 20:22:22 ds4-server: chat ctx=0..35187:35187 prefill chunk 15360/35187 (43.7%) chunk=532.64 t/s avg=533.02 t/s 28.817s
+1013 20:22:23 ds4-server: chat ctx=0..35187:35187 prefill chunk 16384/35187 (46.6%) chunk=533.38 t/s avg=533.04 t/s 30.737s
+1013 20:22:25 ds4-server: chat ctx=0..35187:35187 prefill chunk 17408/35187 (49.5%) chunk=540.72 t/s avg=533.49 t/s 32.631s
+1013 20:22:27 ds4-server: chat ctx=0..35187:35187 prefill chunk 18432/35187 (52.4%) chunk=540.34 t/s avg=533.86 t/s 34.526s
+1013 20:22:29 ds4-server: chat ctx=0..35187:35187 prefill chunk 19456/35187 (55.3%) chunk=535.93 t/s avg=533.97 t/s 36.437s
+1013 20:22:31 ds4-server: chat ctx=0..35187:35187 prefill chunk 20480/35187 (58.2%) chunk=530.66 t/s avg=533.80 t/s 38.366s
+1013 20:22:31 ds4-server: kv cache stored tokens=20480 trimmed=0 reason=continued key=token-text size=728.97 MiB save=200.1 ms
+1013 20:22:33 ds4-server: chat ctx=0..35187:35187 prefill chunk 21504/35187 (61.1%) chunk=439.01 t/s avg=528.37 t/s 40.699s
+1013 20:22:35 ds4-server: chat ctx=0..35187:35187 prefill chunk 22528/35187 (64.0%) chunk=539.03 t/s avg=528.85 t/s 42.598s
+1013 20:22:37 ds4-server: chat ctx=0..35187:35187 prefill chunk 23552/35187 (66.9%) chunk=537.36 t/s avg=529.21 t/s 44.504s
+1013 20:22:39 ds4-server: chat ctx=0..35187:35187 prefill chunk 24576/35187 (69.8%) chunk=536.49 t/s avg=529.51 t/s 46.413s
+1013 20:22:41 ds4-server: chat ctx=0..35187:35187 prefill chunk 25600/35187 (72.8%) chunk=536.95 t/s avg=529.80 t/s 48.320s
+1013 20:22:43 ds4-server: chat ctx=0..35187:35187 prefill chunk 26624/35187 (75.7%) chunk=532.41 t/s avg=529.90 t/s 50.243s
+1013 20:22:45 ds4-server: chat ctx=0..35187:35187 prefill chunk 27648/35187 (78.6%) chunk=537.43 t/s avg=530.18 t/s 52.148s
+1013 20:22:47 ds4-server: chat ctx=0..35187:35187 prefill chunk 28672/35187 (81.5%) chunk=535.83 t/s avg=530.38 t/s 54.060s
+1013 20:22:49 ds4-server: chat ctx=0..35187:35187 prefill chunk 29696/35187 (84.4%) chunk=529.54 t/s avg=530.35 t/s 55.993s
+1013 20:22:51 ds4-server: chat ctx=0..35187:35187 prefill chunk 30720/35187 (87.3%) chunk=535.06 t/s avg=530.51 t/s 57.907s
+1013 20:22:51 ds4-server: kv cache stored tokens=30720 trimmed=0 reason=continued key=token-text size=1036.70 MiB save=349.9 ms
+1013 20:22:53 ds4-server: chat ctx=0..35187:35187 prefill chunk 31744/35187 (90.2%) chunk=407.40 t/s avg=525.38 t/s 60.421s
+1013 20:22:55 ds4-server: chat ctx=0..35187:35187 prefill chunk 32768/35187 (93.1%) chunk=523.39 t/s avg=525.32 t/s 62.377s
+1013 20:22:57 ds4-server: chat ctx=0..35187:35187 prefill chunk 33792/35187 (96.0%) chunk=531.10 t/s avg=525.49 t/s 64.305s
+1013 20:22:59 ds4-server: chat ctx=0..35187:35187 prefill chunk 34816/35187 (98.9%) chunk=535.90 t/s avg=525.79 t/s 66.216s
+1013 20:23:00 ds4-server: chat ctx=0..35187:35187 prefill chunk 35187/35187 (100.0%) chunk=418.02 t/s avg=524.37 t/s 67.103s
+1013 20:23:00 ds4-server: chat ctx=0..35187:35187 prompt done 67.103s
+1013 20:23:01 ds4-server: chat ctx=35187..35237:50 gen=50 decoding chunk=46.61 t/s avg=46.61 t/s 1.073s
+1013 20:23:02 ds4-server: chat ctx=35237..35287:50 gen=100 decoding chunk=42.64 t/s avg=44.54 t/s 2.245s
+1013 20:23:03 ds4-server: chat ctx=35287..35337:50 gen=150 decoding chunk=45.15 t/s avg=44.74 t/s 3.353s
+1013 20:23:04 ds4-server: chat ctx=35337..35387:50 gen=200 decoding chunk=49.63 t/s avg=45.87 t/s 4.360s
+1013 20:23:05 ds4-server: chat ctx=35387..35437:50 gen=250 decoding chunk=46.57 t/s avg=46.01 t/s 5.434s
+1013 20:23:06 ds4-server: chat ctx=35437..35487:50 gen=300 decoding chunk=45.11 t/s avg=45.85 t/s 6.542s
+1013 20:23:07 ds4-server: chat ctx=35487..35537:50 gen=350 decoding chunk=51.42 t/s avg=46.57 t/s 7.515s
+1013 20:23:08 ds4-server: chat ctx=35537..35587:50 gen=400 decoding chunk=51.64 t/s avg=47.15 t/s 8.483s
+1013 20:23:08 ds4-server: chat ctx=0..35187:35187 gen=400 finish=length 75.587s
+1013 20:23:09 ds4-server: shutdown requested, draining requests
+1013 20:23:09 ds4-server: persisting resident KV cache before shutdown slot=0 tokens=35587
+1013 20:23:10 ds4-server: kv cache stored tokens=35587 trimmed=0 reason=shutdown key=token-text size=1272.02 MiB save=927.6 ms

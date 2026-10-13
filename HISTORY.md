@@ -1,5 +1,15 @@
 # History
 
+## 2026-10-13: #1056 at `8d543ec` (PR head level with `main` `fc80bd6`)
+
+- **One window, 20:01–23:30, all runs valid.**
+- **Correctness:** identical to `main` `fc80bd6` on all 3 prompts. `main` itself is unchanged from
+  `0aaea5a` on these outputs.
+- **Speed:** gen +7.9 to +8.7% vs `main`, prefill +1.1 to +1.6% (32/32 separate).
+- **Server, MTP on:** `DS4_QWEN4_MTP_PREFILL=auto` vs `on` gives the same text and −4.7% total wall,
+  but `on` wins one of 3 requests (+2.4%).
+- **Tests:** 14/15 model-free tests pass; `test-qwen4-moe-mm-compact` is a stale source scanner.
+
 ## 2026-10-03/04: #1056 at `37f66ba` (resident prefill back to main's arithmetic)
 
 - **Correctness (18:41, ~5 min of server downtime):** identical to base `0aaea5a` on all 3 prompts;

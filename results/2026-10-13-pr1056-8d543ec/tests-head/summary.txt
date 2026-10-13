@@ -1,0 +1,15 @@
+test-qwen4-memory rc=0 4s
+test-qwen4-kernels rc=0 10s
+test-qwen4-q2 rc=0 5s
+test-metal-q8-reduction rc=0 1s
+test-metal-q8-gemv-reference rc=0 2s
+test-metal-qwen4-moe-half rc=0 3s
+test-metal-qwen4-hc rc=0 3s
+test-metal-qwen4-moe-mid rc=0 1s
+test-metal-qwen4-moe-down rc=0 2s
+test-qwen4-ssd-experts rc=0 10s
+test-metal-ssd-reuse rc=0 4s
+test-qwen4-moe-mm-compact rc=2 1s
+test-metal-device-policy rc=0 0s
+test-qwen4-resident-arithmetic rc=0 13s
+test-qwen4-hc-math rc=0 0s

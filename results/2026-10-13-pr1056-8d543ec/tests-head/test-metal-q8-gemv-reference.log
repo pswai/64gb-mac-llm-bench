@@ -1,0 +1,5 @@
+cc -O3 -g -mcpu=native -Wall -Wextra -fobjc-arc -o tests/test_metal_q8_gemv_reference tests/test_metal_q8_gemv_reference.m -lm -pthread -framework Foundation -framework Metal
+./tests/test_metal_q8_gemv_reference
+PASS compile default: frozen e37 NR2 and candidate NR2/NR4, NSG=1/2/4/8
+PASS compile safe: frozen e37 NR2 and candidate NR2/NR4, NSG=1/2/4/8
+PASS full Q8 GEMV: 1024 fixtures, 571136 values, 0 bit differences; input immutability and output guards checked

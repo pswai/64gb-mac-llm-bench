@@ -1,0 +1,15 @@
+python3 tests/test_qwen4_moe_mm_compact.py --sanitize
+Traceback (most recent call last):
+  File "~/Dev/ds4-pr1056-8d543ec/tests/test_qwen4_moe_mm_compact.py", line 427, in <module>
+    main()
+    ~~~~^^
+  File "~/Dev/ds4-pr1056-8d543ec/tests/test_qwen4_moe_mm_compact.py", line 407, in main
+    code = extract_cpu_code(host, metal)
+  File "~/Dev/ds4-pr1056-8d543ec/tests/test_qwen4_moe_mm_compact.py", line 168, in extract_cpu_code
+    check_shader_mapping(metal)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "~/Dev/ds4-pr1056-8d543ec/tests/test_qwen4_moe_mm_compact.py", line 61, in check_shader_mapping
+    assert [part.strip() for part in template.split(',')] == ['NT', scalar, shadow_enabled], marker
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: kernel void kernel_qwen4_moe_mm_mid(
+make: *** [test-qwen4-moe-mm-compact] Error 1

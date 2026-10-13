@@ -1,0 +1,3 @@
+cc -O3 -g -mcpu=native -Wall -Wextra -fobjc-arc -o tests/test_metal_qwen4_moe_mid tests/test_metal_qwen4_moe_mid.m -lm -pthread -framework Foundation -framework Metal
+./tests/test_metal_qwen4_moe_mid
+PASS Qwen MoE mid: 180 fixtures, 1119600 comparisons, 0 NaN payload differences

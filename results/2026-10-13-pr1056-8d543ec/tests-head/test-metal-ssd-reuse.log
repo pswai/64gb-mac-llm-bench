@@ -1,0 +1,12 @@
+cc -O3 -ffast-math -g -mcpu=native -Wall -Wextra -fobjc-arc -I. -c -o tests/test_metal_ssd_reuse.o tests/test_metal_ssd_reuse.m
+cc -O3 -ffast-math -g -mcpu=native -Wall -Wextra -std=c99 -o tests/test_metal_ssd_reuse tests/test_metal_ssd_reuse.o ds4_image.o -lm -pthread -framework Foundation -framework Metal
+./tests/test_metal_ssd_reuse
+  entries=2048 planned=1 consumed=1: exact scalar order and state
+  entries=2048 planned=16 consumed=16: exact scalar order and state
+  entries=2048 planned=17 consumed=17: exact scalar order and state
+  entries=2048 planned=511 consumed=511: exact scalar order and state
+  entries=2048 planned=512 consumed=512: exact scalar order and state
+  entries=40960 planned=512 consumed=512: exact scalar order and state
+  entries=17 planned=16 consumed=16: exact scalar order and state
+  entries=2048 planned=512 consumed=7: exact scalar order and state
+Metal SSD reuse planner: PASS (CPU-only)

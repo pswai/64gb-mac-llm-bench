@@ -1,0 +1,62 @@
+== rome-short
+  head vs base fc80bd6       logits  : max|d|=0 over 248328
+  head vs base fc80bd6       logprobs: max|d|=0 over 10731
+  head vs base fc80bd6       text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs base fc80bd6       mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs head.rep (GATE)    logits  : max|d|=0 over 248328
+  head vs head.rep (GATE)    logprobs: max|d|=0 over 10731
+  head vs head.rep (GATE)    text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs head.rep (GATE)    mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs 10-03 37f66ba      logits  : max|d|=0 over 248328
+  head vs 10-03 37f66ba      logprobs: max|d|=0 over 10731
+  head vs 10-03 37f66ba      text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head vs 10-03 37f66ba      mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  base vs 10-03 0aaea5a      logits  : max|d|=0 over 248328
+  base vs 10-03 0aaea5a      logprobs: max|d|=0 over 10731
+  base vs 10-03 0aaea5a      text    : b84a489e8f85db57 vs b84a489e8f85db57
+  base vs 10-03 0aaea5a      mtptext : b84a489e8f85db57 vs b84a489e8f85db57
+  head: mtptext vs text      text    : b84a489e8f85db57 vs b84a489e8f85db57
+  base: mtptext vs text      text    : b84a489e8f85db57 vs b84a489e8f85db57
+  head mtp: auto vs on       text    : b84a489e8f85db57 vs b84a489e8f85db57
+== roma575
+  head vs base fc80bd6       logits  : max|d|=0 over 248328
+  head vs base fc80bd6       logprobs: max|d|=0 over 10890
+  head vs base fc80bd6       text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  head vs base fc80bd6       mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+  head vs head.rep (GATE)    logits  : max|d|=0 over 248328
+  head vs head.rep (GATE)    logprobs: max|d|=0 over 10890
+  head vs head.rep (GATE)    text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  head vs head.rep (GATE)    mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+  head vs 10-03 37f66ba      logits  : max|d|=0 over 248328
+  head vs 10-03 37f66ba      logprobs: max|d|=0 over 10890
+  head vs 10-03 37f66ba      text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  head vs 10-03 37f66ba      mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+  base vs 10-03 0aaea5a      logits  : max|d|=0 over 248328
+  base vs 10-03 0aaea5a      logprobs: max|d|=0 over 10890
+  base vs 10-03 0aaea5a      text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  base vs 10-03 0aaea5a      mtptext : f2af8811f8198e7f vs f2af8811f8198e7f
+  head: mtptext vs text      text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  base: mtptext vs text      text    : f2af8811f8198e7f vs f2af8811f8198e7f
+  head mtp: auto vs on       text    : f2af8811f8198e7f vs f2af8811f8198e7f
+== sposi-long
+  head vs base fc80bd6       logits  : max|d|=0 over 248330
+  head vs base fc80bd6       logprobs: max|d|=0 over 11001
+  head vs base fc80bd6       text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head vs base fc80bd6       mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head vs head.rep (GATE)    logits  : max|d|=0 over 248330
+  head vs head.rep (GATE)    logprobs: max|d|=0 over 11001
+  head vs head.rep (GATE)    text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head vs head.rep (GATE)    mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head vs 10-03 37f66ba      logits  : max|d|=0 over 248330
+  head vs 10-03 37f66ba      logprobs: max|d|=0 over 11001
+  head vs 10-03 37f66ba      text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head vs 10-03 37f66ba      mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  base vs 10-03 0aaea5a      logits  : max|d|=0 over 248330
+  base vs 10-03 0aaea5a      logprobs: max|d|=0 over 11001
+  base vs 10-03 0aaea5a      text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  base vs 10-03 0aaea5a      mtptext : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head: mtptext vs text      text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  base: mtptext vs text      text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+  head mtp: auto vs on       text    : 093f5e014f1f73e9 vs 093f5e014f1f73e9
+SUMMARY {"rome-short": {"head_vs_base": true, "head_vs_37f66ba": true, "base_vs_0aaea5a": true, "head_mtp_eq_plain": true, "base_mtp_eq_plain": true, "auto_eq_on": true}, "roma575": {"head_vs_base": true, "head_vs_37f66ba": true, "base_vs_0aaea5a": true, "head_mtp_eq_plain": true, "base_mtp_eq_plain": true, "auto_eq_on": true}, "sposi-long": {"head_vs_base": true, "head_vs_37f66ba": true, "base_vs_0aaea5a": true, "head_mtp_eq_plain": true, "base_mtp_eq_plain": true, "auto_eq_on": true}}
+DETERMINISM (head vs head.rep): IDENTICAL

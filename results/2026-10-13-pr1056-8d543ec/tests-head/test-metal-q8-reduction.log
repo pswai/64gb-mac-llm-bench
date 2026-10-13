@@ -1,0 +1,21 @@
+cc -O3 -ffast-math -g -mcpu=native -Wall -Wextra -fobjc-arc -o tests/test_metal_q8_reduction tests/test_metal_q8_reduction.m -lm -pthread -framework Foundation -framework Metal
+./tests/test_metal_q8_reduction
+PASS compile default: 16 pipelines, NSG=1..8, NR=2
+PASS compile safe: 16 pipelines, NSG=1..8, NR=2
+PASS default NSG=1 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=2 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=3 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=4 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=5 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=6 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=7 NR=2: 192 cases, 256 output rows, guards intact
+PASS default NSG=8 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=1 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=2 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=3 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=4 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=5 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=6 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=7 NR=2: 192 cases, 256 output rows, guards intact
+PASS safe NSG=8 NR=2: 192 cases, 256 output rows, guards intact
+PASS Q8 reduction: 3072 cases, 4096 output rows; non-NaN bits and NaN classification match; 0 NaN payload differences ignored

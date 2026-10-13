@@ -1,0 +1,35 @@
+startups: 10, valid 10; max swap-in pages 519
+
+## mtp-off  (startups A=2, B=2)
+  short1 (prompt tokens [3683]):
+    prefill t/s A 512.15 [509.20-515.11]  B 505.50 [497.04-513.96] | B vs A -1.30%
+    decode t/s  A 39.84 [39.78-39.91]  B 43.05 [43.02-43.07] | B vs A +8.03%*
+    wall s      A 27.34 [27.26-27.41]  B 25.94 [25.81-26.07] | B vs A -5.10%*
+    text: A=c3cd3df463fb2d37  B=c3cd3df463fb2d37
+  short2 (prompt tokens [3562]):
+    prefill t/s A 515.29 [513.26-517.32]  B 519.15 [512.91-525.40] | B vs A +0.75%
+    decode t/s  A 39.85 [39.84-39.86]  B 42.99 [42.95-43.03] | B vs A +7.88%*
+    wall s      A 27.09 [27.05-27.12]  B 25.58 [25.52-25.64] | B vs A -5.56%*
+    text: A=ec1cb38978ab00fd  B=ec1cb38978ab00fd
+  deep (prompt tokens [35187]):
+    prefill t/s A 524.63 [523.96-525.31]  B 532.79 [531.71-533.86] | B vs A +1.55%*
+    decode t/s  A 39.64 [39.64-39.64]  B 42.78 [42.77-42.79] | B vs A +7.92%*
+    wall s      A 77.27 [77.20-77.35]  B 75.51 [75.38-75.64] | B vs A -2.28%*
+    text: A=294865c5c45ad2db  B=294865c5c45ad2db
+
+## mtp-on  (startups A=2, B=2, D=2)
+  short1 (prompt tokens [3683]):
+    prefill t/s A 505.48 [504.65-506.31]  B 474.30 [470.65-477.96]  D 516.52 [511.51-521.54] | B vs A -6.17%* | D vs A +2.19%* | D vs B +8.90%*
+    decode t/s  A 46.95 [46.95-46.95]  B 49.95 [49.94-49.97]  D 49.80 [49.79-49.81] | B vs A +6.40%* | D vs A +6.07%* | D vs B -0.31%*
+    wall s      A 24.40 [24.38-24.41]  B 23.85 [23.79-23.90]  D 23.26 [23.20-23.33] | B vs A -2.25%* | D vs A -4.65%* | D vs B -2.46%*
+    text: A=ea8f3d4438ce61d2  B=b51d5d8a1ab92f68  D=b51d5d8a1ab92f68
+  short2 (prompt tokens [3562]):
+    prefill t/s A 508.93 [506.78-511.08]  B 479.11 [478.39-479.83]  D 520.71 [520.08-521.33] | B vs A -5.86%* | D vs A +2.31%* | D vs B +8.68%*
+    decode t/s  A 54.66 [54.66-54.67]  B 62.62 [62.62-62.63]  D 57.78 [57.78-57.78] | B vs A +14.56%* | D vs A +5.70%* | D vs B -7.74%*
+    wall s      A 21.74 [21.71-21.77]  B 20.32 [20.31-20.33]  D 20.80 [20.79-20.82] | B vs A -6.51%* | D vs A -4.29%* | D vs B +2.38%*
+    text: A=ec1cb38978ab00fd  B=ec1cb38978ab00fd  D=ec1cb38978ab00fd
+  deep (prompt tokens [35187]):
+    prefill t/s A 524.49 [524.37-524.61]  B 488.88 [488.36-489.39]  D 532.27 [531.93-532.62] | B vs A -6.79%* | D vs A +1.48%* | D vs B +8.88%*
+    decode t/s  A 47.13 [47.11-47.15]  B 50.62 [50.58-50.66]  D 49.68 [49.66-49.70] | B vs A +7.41%* | D vs A +5.41%* | D vs B -1.86%*
+    wall s      A 75.70 [75.69-75.71]  B 80.00 [79.92-80.08]  D 74.28 [74.24-74.32] | B vs A +5.68%* | D vs A -1.87%* | D vs B -7.15%*
+    text: A=334aa369695219ad  B=294865c5c45ad2db  D=294865c5c45ad2db

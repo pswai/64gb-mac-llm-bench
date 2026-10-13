@@ -1,0 +1,39 @@
+DS4_METAL_MATH_SAFE=0 DS4_TEST_QWEN4_M1_REUSE_ONLY=hc ./tests/test_qwen4_kernels
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=off
+ds4: Metal model views created in 0.072 ms, residency requested in 1.799 ms, warmup 3.839 ms (mapped 96.00 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+M1 reuse screen: explicit generic vs automatic (device-dependent) kernels
+  HC F16 reuse E=33 rank=320 T=1 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=2 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=3 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=33 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=128 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=1 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=2 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=3 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=33 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=128 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+HC prefetched mixers (single and paired): exact against the plain kernels on all lane paths
+M1 reuse screen passed; arena used 25.99 MiB
+DS4_METAL_MATH_SAFE=1 DS4_TEST_QWEN4_M1_REUSE_ONLY=hc ./tests/test_qwen4_kernels
+ds4: Metal device Apple M4 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API disabled for pre-M5/pre-A19 devices
+ds4: Metal shader library math mode = safe (strict IEEE-754) by DS4_METAL_MATH_SAFE
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=on tensor_matmul=off
+ds4: Metal model views created in 0.021 ms, residency requested in 2.373 ms, warmup 4.298 ms (mapped 96.00 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+M1 reuse screen: explicit generic vs automatic (device-dependent) kernels
+  HC F16 reuse E=33 rank=320 T=1 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=2 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=3 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=33 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=33 rank=320 T=128 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=1 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=2 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=3 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=33 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+  HC F16 reuse E=2560 rank=320 T=128 shared=0: generic vs unset default vs explicit prefetch exact, guards intact
+HC prefetched mixers (single and paired): exact against the plain kernels on all lane paths
+M1 reuse screen passed; arena used 25.99 MiB

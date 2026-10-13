@@ -1,0 +1,22 @@
+cc -O3 -g -mcpu=native -Wall -Wextra -fobjc-arc -o tests/test_metal_qwen4_moe_half tests/test_metal_qwen4_moe_half.m -lm -pthread -framework Foundation -framework Metal
+./tests/test_metal_qwen4_moe_half
+PASS T=1 NT=1/2/4/8 sparse=0 expert-major=0
+PASS T=7 NT=1/2/4/8 sparse=1 expert-major=0
+PASS T=9 NT=1/2/4/8 sparse=0 expert-major=1
+PASS T=31 NT=1/2/4/8 sparse=1 expert-major=1
+PASS T=33 NT=1/2/4/8 sparse=0 expert-major=0
+PASS T=67 NT=1/2/4/8 sparse=1 expert-major=0
+PASS T=131 NT=1/2/4/8 sparse=0 expert-major=1
+PASS Qwen MoE half: 28 fixtures, 19998720 float comparisons
+./tests/test_metal_qwen4_moe_half --q4-k32
+PASS T=1 NT=1/2/4/8 plus K32 NT4 sparse=0 expert-major=0
+PASS T=7 NT=1/2/4/8 plus K32 NT4 sparse=1 expert-major=0
+PASS T=9 NT=1/2/4/8 plus K32 NT4 sparse=0 expert-major=1
+PASS T=31 NT=1/2/4/8 plus K32 NT4 sparse=1 expert-major=1
+PASS T=33 NT=1/2/4/8 plus K32 NT4 sparse=0 expert-major=0
+PASS T=67 NT=1/2/4/8 plus K32 NT4 sparse=1 expert-major=0
+PASS T=131 NT=1/2/4/8 plus K32 NT4 sparse=0 expert-major=1
+PASS Q4 K32 float/half T=439, row and token tails
+PASS Q4 K32 float/half T=8191, row and token tails
+PASS Q4 K32 float/half T=8192, row and token tails
+PASS Qwen MoE half: 38 fixtures, 331727600 float comparisons
