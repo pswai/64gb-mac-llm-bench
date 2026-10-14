@@ -157,7 +157,8 @@ quiet() {
 restore() {
     [ -n "$RESTORED" ] && return; RESTORED=1
     trap - EXIT INT TERM
-    [ -n "$WD_PID" ] && kill "$WD_PID" 2>/dev/null
+    # the watchdog and its sleep: an orphaned sleep would later signal a dead (or reused) pid
+    [ -n "$WD_PID" ] && { pkill -P "$WD_PID" 2>/dev/null; kill "$WD_PID" 2>/dev/null; }
     if [ -n "$CHILD" ]; then kill -TERM "$CHILD" 2>/dev/null; sleep 5; kill -KILL "$CHILD" 2>/dev/null; fi
     pkill -TERM -x ds4-bench 2>/dev/null
     [ -n "$SAMPLER" ] && kill "$SAMPLER" 2>/dev/null
@@ -269,7 +270,7 @@ trap 'log "signal: stopping"; restore; exit 130' INT TERM
 
 stop_epoch=$(date -j -f "%H:%M" "$STOP_AT" +%s); now=$(date +%s)
 [ "$stop_epoch" -le "$now" ] && stop_epoch=$(( stop_epoch + 86400 ))
-( sleep $(( stop_epoch - now )); kill -TERM $$ ) & WD_PID=$!
+( sleep $(( stop_epoch - now )) && kill -TERM $$ ) & WD_PID=$!   # && : a sleep killed by restore must not signal
 log "hard stop at $(date -r "$stop_epoch" '+%F %T')"
 
 quiet || exit 1
